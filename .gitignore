@@ -1,2 +1,4 @@
 node-api/node_modules/*
+node-api/logs/*
+
 react-app/node_modules/*

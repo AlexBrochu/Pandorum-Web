@@ -21,13 +21,13 @@ class App {
     private middleware(): void {
         this.express.use(bodyParser.json());
         this.express.use(bodyParser.urlencoded({ extended: false }));
-        this.express.use(express.static(process.cwd() + "/my-app/build/"));
+        this.express.use(express.static(process.cwd() + "/react-app/build/"));
     }
 
     private routes(): void {
 
         this.express.get("/", (req, res, next) => {
-            res.sendFile(process.cwd() + "/my-app/build/index.html");
+            res.sendFile(process.cwd() + "/react-app/build/index.html");
         });
 
         // user route

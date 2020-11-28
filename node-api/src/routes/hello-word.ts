@@ -1,11 +1,11 @@
 import * as bodyParser from "body-parser";
 import * as express from "express";
-import User from "./user";
-import HelloWord from "./hello-word";
+import {Logger} from "../logger/logger"
 
-class Routes {
+class HelloWord {
 
     public express: express.Application;
+    public logger: Logger
 
     // array to hold users
     public users: any[];
@@ -14,6 +14,7 @@ class Routes {
         this.express = express();
         this.middleware();
         this.routes();
+        this.logger = new Logger();
     }
 
     // Configure Express middleware.
@@ -24,10 +25,14 @@ class Routes {
 
     private routes(): void {
 
-        // user route
-        this.express.use("/", User);
-        this.express.use("/", HelloWord);
+        // request to get all the users
+        this.express.get("/test", (req, res, next) => {
+          this.logger.info("TEST");
+            res.json({
+              "message": "Hello Word test"
+            });
+        });
     }
 }
 
-export default new Routes().express;
+export default new HelloWord().express;

@@ -71,4 +71,11 @@ module.exports = {
       {test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline'},
     ],
   },
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3080',
+      }
+    }
+  }
 }
