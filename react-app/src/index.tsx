@@ -7,7 +7,6 @@ import HelloWord from "./components/HelloWord";
 const Index = () => {
   return <div>
       <App />
-      <HelloWord/>
     </div>;
 };
 
