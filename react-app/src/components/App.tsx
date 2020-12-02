@@ -13,6 +13,6 @@ export interface IAppProps {}
 export default function App(props: IAppProps) {
   return <div>
       <h1>Hello React Typescript! YEAH</h1>
-      <Button>Click Me</Button>
+      <Button variant="primary">Primary</Button>
     </div>;
 }
