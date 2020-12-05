@@ -9,7 +9,7 @@ module.exports = {
   entry: [paths.src + '/index.tsx'],
 
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ],
+    extensions: ['.tsx', '.ts', '.js'],
   },
 
   // Where webpack outputs the assets and bundles
@@ -52,30 +52,34 @@ module.exports = {
     rules: [
       // JavaScript: Use Babel to transpile JavaScript files
       { test: /\.tsx?$/, exclude: /node_modules/, use: ['ts-loader'] },
+      { test: /\.json5?$/, exclude: /node_modules/, use: ['json5-loader'] },
 
       // Styles: Inject CSS into the head with source maps
       {
         test: /\.(scss|css)$/,
         use: [
           'style-loader',
-          {loader: 'css-loader', options: {sourceMap: true, importLoaders: 1}},
-          {loader: 'postcss-loader', options: {sourceMap: true}},
-          {loader: 'sass-loader', options: {sourceMap: true}},
+          {
+            loader: 'css-loader',
+            options: { sourceMap: true, importLoaders: 1 },
+          },
+          { loader: 'postcss-loader', options: { sourceMap: true } },
+          { loader: 'sass-loader', options: { sourceMap: true } },
         ],
       },
 
       // Images: Copy image files to build folder
-      {test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource'},
+      { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource' },
 
       // Fonts and SVGs: Inline files
-      {test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline'},
+      { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline' },
     ],
   },
   devServer: {
     proxy: {
       '/api': {
         target: 'http://localhost:3080',
-      }
-    }
-  }
+      },
+    },
+  },
 }

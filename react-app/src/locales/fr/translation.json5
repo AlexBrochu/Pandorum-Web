@@ -1,0 +1,8 @@
+{
+  common: {
+    title: 'Bonjour',
+    test: {
+      test: 'MR AR',
+    },
+  },
+}

@@ -1,13 +1,21 @@
+import './i18n'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
+import App from './components/App'
+import HelloWord from './components/HelloWord'
+import i18next from 'i18next'
+import { I18nextProvider } from 'react-i18next'
 
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import App from "./components/App";
-import HelloWord from "./components/HelloWord";
+i18next.init({
+  interpolation: { escapeValue: false }, // React already does escaping
+})
 
 const Index = () => {
-  return <div>
+  return (
+    <I18nextProvider i18n={i18next}>
       <App />
-    </div>;
-};
+    </I18nextProvider>
+  )
+}
 
-ReactDOM.render(<Index />, document.getElementById("root"));
+ReactDOM.render(<Index />, document.getElementById('root'))
