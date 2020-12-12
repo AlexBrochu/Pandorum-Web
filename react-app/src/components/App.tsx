@@ -2,7 +2,7 @@ import * as React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import NavBar from './common/navbar/Navbar'
-import SlideShowCard from './slideshow-card/SlideshowCard'
+import SlideShowCard from './common/slideshow-card/SlideshowCard'
 import { withTranslation, WithTranslation } from 'react-i18next'
 import './App.scss'
 
