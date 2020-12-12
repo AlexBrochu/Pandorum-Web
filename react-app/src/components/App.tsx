@@ -5,7 +5,6 @@ import NavBar from './common/navbar/Navbar'
 import SlideShowCard from './slideshow-card/SlideshowCard'
 import { withTranslation, WithTranslation } from 'react-i18next'
 import './App.scss'
-import Carousel from './carousel/Carousel'
 
 type AppState = {
   lang: string
