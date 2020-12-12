@@ -5,4 +5,17 @@
       test: 'MR Robot',
     },
   },
+  home: {
+    cardDemo: {
+      title: 'Super Game',
+      description1: {
+        title: "Let's go",
+        subtitle: 'Such awesome',
+      },
+      description2: {
+        title: 'Please Work',
+        subtitle: 'Much Wow',
+      },
+    },
+  },
 }

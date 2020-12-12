@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { Suspense } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import NavBar from './common/navbar/Navbar'
+import SlideShowCard from './slideshow-card/SlideshowCard'
 import { withTranslation, WithTranslation } from 'react-i18next'
 import './App.scss'
+import Carousel from './carousel/Carousel'
 
 type AppState = {
   lang: string
@@ -33,6 +34,16 @@ class App extends React.Component<WithTranslation, AppState> {
   }
 
   render() {
+    const description1 = {
+      title: 'cardDemo.description1.title',
+      description: 'cardDemo.description1.subtitle',
+    }
+
+    const description2 = {
+      title: 'cardDemo.description2.title',
+      description: 'cardDemo.description2.subtitle',
+    }
+
     return (
       <div>
         <NavBar></NavBar>
@@ -40,6 +51,12 @@ class App extends React.Component<WithTranslation, AppState> {
         <Button onClick={() => this.handleClick()} variant="primary">
           {this.state.lang}
         </Button>
+        <SlideShowCard
+          timeLeft={40}
+          namespace="home"
+          title="cardDemo.title"
+          subtitles={[description1, description2]}
+        ></SlideShowCard>
       </div>
     )
   }

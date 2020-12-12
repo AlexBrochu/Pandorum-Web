@@ -5,4 +5,17 @@
       test: 'MR AR',
     },
   },
+  home: {
+    cardDemo: {
+      title: 'Super Jeu',
+      description1: {
+        title: "Let's go",
+        subtitle: 'Such awesome',
+      },
+      description2: {
+        title: 'Please Work',
+        subtitle: 'Much Wow',
+      },
+    },
+  },
 }
