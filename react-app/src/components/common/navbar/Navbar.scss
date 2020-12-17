@@ -1,0 +1,8 @@
+.profile-menu-hover {
+  opacity: 0;
+  transition: ease-out 0.5s;
+  &.focus {
+    opacity: 100;
+    display: block;
+  }
+}

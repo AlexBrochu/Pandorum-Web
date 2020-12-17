@@ -1,29 +1,24 @@
-import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button'
-import { Navbar, Nav } from 'react-bootstrap'
-import { useTranslation } from 'react-i18next'
-import { useLocation } from 'react-router-dom'
+import React from 'react'
+import NavbarDesktop from './NavbarDesktop'
+import NavbarMobile from './NavbarMobile'
+import './Navbar.scss'
 
 type CommonNavbarProps = {}
 
 const CommonNavbar: React.FunctionComponent<CommonNavbarProps> = (
   props: CommonNavbarProps
 ): any => {
-  const { t, i18n } = useTranslation('nav')
-  const [lang, setLang] = useState('fr')
-  const location = useLocation()
-
-  function handleClick() {
-    if (lang === 'fr') {
-      setLang('en')
-    } else {
-      setLang('fr')
-    }
-    i18n.changeLanguage(lang)
-  }
-
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <>
+      <NavbarDesktop></NavbarDesktop>
+      <NavbarMobile></NavbarMobile>
+    </>
+  )
+}
+
+export default CommonNavbar
+{
+  /* <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand href="/">{t('brand')}</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
@@ -50,8 +45,5 @@ const CommonNavbar: React.FunctionComponent<CommonNavbarProps> = (
           </Button>
         </Nav>
       </Navbar.Collapse>
-    </Navbar>
-  )
+    </Navbar> */
 }
-
-export default CommonNavbar
