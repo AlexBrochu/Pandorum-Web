@@ -1,7 +1,6 @@
-import React, { useState, useRef } from 'react'
-import useResize from '../../../hooks/useResize'
+import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import NavbarMobileMenu from './NavbarMobileMenu'
 
 type NavbarMobileProps = {}
@@ -9,11 +8,9 @@ type NavbarMobileProps = {}
 const NavbarMobile: React.FunctionComponent<NavbarMobileProps> = (
   props: NavbarMobileProps
 ): any => {
-  const nodeRef = useRef()
-  const { width, height } = useResize(nodeRef)
   const { t, i18n } = useTranslation('nav')
   const [lang, setLang] = useState('fr')
-  const location = useLocation()
+  const [toggle, setToggle] = useState(false)
 
   function handleClick() {
     if (lang === 'fr') {
@@ -24,22 +21,35 @@ const NavbarMobile: React.FunctionComponent<NavbarMobileProps> = (
     i18n.changeLanguage(lang)
   }
 
+  function handleOpenMenu() {
+    if (toggle) setToggle(false)
+    else setToggle(true)
+  }
+
   return (
     <nav className="bg-gray-800 sm:hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <img
-                className="h-8 w-8"
-                src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                alt="Workflow"
-              />
+              <Link to="/" className="text-white">
+                {t('brand')}
+              </Link>
             </div>
           </div>
           <div className="-mr-2 flex md:hidden">
+            <button
+              onClick={() => handleClick()}
+              className="mr-3 bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+            >
+              <span className="sr-only">Change Language</span>
+              <div className="h-6 w-8">{lang.toUpperCase()}</div>
+            </button>
             {/* <!-- Mobile menu button --> */}
-            <button className="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+            <button
+              onClick={() => handleOpenMenu()}
+              className="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+            >
               <span className="sr-only">Open main menu</span>
               {/* <!--
               Heroicon name: menu
@@ -47,7 +57,7 @@ const NavbarMobile: React.FunctionComponent<NavbarMobileProps> = (
               Menu open: "hidden", Menu closed: "block"
             --> */}
               <svg
-                className="block h-6 w-6"
+                className={`${toggle ? 'hidden' : 'block'} h-6 w-6`}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -67,7 +77,7 @@ const NavbarMobile: React.FunctionComponent<NavbarMobileProps> = (
               Menu open: "block", Menu closed: "hidden"
             --> */}
               <svg
-                className="hidden h-6 w-6"
+                className={`${toggle ? 'block' : 'hidden'} h-6 w-6`}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -85,7 +95,7 @@ const NavbarMobile: React.FunctionComponent<NavbarMobileProps> = (
           </div>
         </div>
       </div>
-      <NavbarMobileMenu></NavbarMobileMenu>
+      <NavbarMobileMenu show={toggle}></NavbarMobileMenu>
     </nav>
   )
 }

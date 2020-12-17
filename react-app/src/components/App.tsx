@@ -22,7 +22,7 @@ class App extends React.Component<{}, AppState> {
             <Route path="/news">
               <NewsPage />
             </Route>
-            <Route path="/roadmaps">
+            <Route path="/roadmap">
               <RoadmapPage />
             </Route>
             <Route path="/">

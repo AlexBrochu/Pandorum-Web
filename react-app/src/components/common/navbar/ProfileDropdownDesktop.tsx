@@ -1,26 +1,12 @@
 import React, { useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 type ProfileDesktopProps = {}
 
 const ProfileDesktop: React.FunctionComponent<ProfileDesktopProps> = (
   props: ProfileDesktopProps
 ): any => {
-  const { t, i18n } = useTranslation('nav')
-  const [lang, setLang] = useState('fr')
-  const location = useLocation()
-
   const [clicked, setClicked] = useState(false)
-
-  function handleClick() {
-    if (lang === 'fr') {
-      setLang('en')
-    } else {
-      setLang('fr')
-    }
-    i18n.changeLanguage(lang)
-  }
 
   function handleClickProfile() {
     if (clicked) setClicked(false)
@@ -65,29 +51,29 @@ const ProfileDesktop: React.FunctionComponent<ProfileDesktopProps> = (
           aria-orientation="vertical"
           aria-labelledby="user-menu"
         >
-          <a
-            href="#"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+          <Link
+            to="/profile"
+            className="block px-4 py-2 text-sm text-black hover:bg-gray-100"
             role="menuitem"
           >
             Your Profile
-          </a>
+          </Link>
 
-          <a
-            href="#"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+          <Link
+            to="/settings"
+            className="block px-4 py-2 text-sm  text-black hover:bg-gray-100"
             role="menuitem"
           >
             Settings
-          </a>
+          </Link>
 
-          <a
-            href="#"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+          <Link
+            to="/"
+            className="block px-4 py-2 text-sm  text-black hover:bg-gray-100"
             role="menuitem"
           >
             Sign out
-          </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -95,33 +81,3 @@ const ProfileDesktop: React.FunctionComponent<ProfileDesktopProps> = (
 }
 
 export default ProfileDesktop
-{
-  /* <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="/">{t('brand')}</Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link active={location.pathname == '/'} href="/">
-            {t('home')}
-          </Nav.Link>
-          <Nav.Link active={location.pathname == '/roadmap'} href="/roadmap">
-            {t('roadmap')}
-          </Nav.Link>
-          <Nav.Link active={location.pathname == '/news'} href="/news">
-            {t('news')}
-          </Nav.Link>
-          <Nav.Link
-            active={location.pathname == '/discussions'}
-            href="/discussions"
-          >
-            {t('discussions')}
-          </Nav.Link>
-        </Nav>
-        <Nav>
-          <Button onClick={() => handleClick()} variant="primary">
-            {lang.toUpperCase()}
-          </Button>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar> */
-}
