@@ -1,5 +1,5 @@
 import './SlideshowElement.scss'
-import * as React from 'react'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Description } from '../slideshow-card/SlideshowText'
 

@@ -1,37 +1,16 @@
-import * as React from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import Button from 'react-bootstrap/Button'
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import NavBar from './common/navbar/Navbar'
+import HomePage from './home/Home'
+import NewsPage from './news/News'
+import RoadmapPage from './roadmap/Roadmap'
+import DiscussionsPage from './discussions/Discussions'
 import SlideShowCard from './common/slideshow-card/SlideshowCard'
-import { withTranslation, WithTranslation } from 'react-i18next'
 import './App.scss'
 
-type AppState = {
-  lang: string
-}
+type AppState = {}
 
-class App extends React.Component<WithTranslation, AppState> {
-  constructor(props: WithTranslation) {
-    super(props)
-    this.state = {
-      lang: 'fr',
-    }
-    this.handleClick = this.handleClick.bind(this)
-  }
-
-  handleClick() {
-    if (this.state.lang === 'fr') {
-      this.setState({
-        lang: 'en',
-      })
-    } else {
-      this.setState({
-        lang: 'fr',
-      })
-    }
-    this.props.i18n.changeLanguage(this.state.lang)
-  }
-
+class App extends React.Component<{}, AppState> {
   render() {
     const description1 = {
       title: 'cardDemo.description1.title',
@@ -44,21 +23,35 @@ class App extends React.Component<WithTranslation, AppState> {
     }
 
     return (
-      <div>
-        <NavBar></NavBar>
-        <h1>Hello React Typescript! {this.props.t('test.test')}</h1>
-        <Button onClick={() => this.handleClick()} variant="primary">
-          {this.state.lang}
-        </Button>
-        <SlideShowCard
+      <Router>
+        <div>
+          <NavBar></NavBar>
+          <h1>Hello React Typescript!</h1>
+
+          {/* <SlideShowCard
           timeLeft={40}
           namespace="home"
           title="cardDemo.title"
           subtitles={[description1, description2]}
-        ></SlideShowCard>
-      </div>
+        ></SlideShowCard> */}
+          <Switch>
+            <Route path="/discussions">
+              <DiscussionsPage />
+            </Route>
+            <Route path="/news">
+              <NewsPage />
+            </Route>
+            <Route path="/roadmaps">
+              <RoadmapPage />
+            </Route>
+            <Route path="/">
+              <HomePage />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     )
   }
 }
 
-export default withTranslation('common')(App)
+export default App

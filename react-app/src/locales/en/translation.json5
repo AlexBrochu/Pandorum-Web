@@ -1,4 +1,12 @@
 {
+  langauge: 'english',
+  nav: {
+    brand: 'Pandorum',
+    home: 'Home',
+    roadmap: 'Roadmap',
+    news: 'News',
+    discussions: 'Discussions',
+  },
   common: {
     title: 'Hello',
     test: {

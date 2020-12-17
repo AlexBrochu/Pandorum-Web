@@ -1,6 +1,6 @@
 import './SlideshowCard.scss'
 import { Description } from './SlideshowText'
-import * as React from 'react'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useIsVisible } from 'react-is-visible'
 import 'intersection-observer'

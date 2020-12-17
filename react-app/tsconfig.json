@@ -7,6 +7,7 @@
 		"jsx": "react",
 		"allowJs": true,
 		"moduleResolution": "node",
-		"plugins": [{"name": "typescript-tslint-plugin"}]
+		"plugins": [{"name": "typescript-tslint-plugin"}], 
+		"esModuleInterop": true
 	}
 }

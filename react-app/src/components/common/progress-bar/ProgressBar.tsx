@@ -1,5 +1,5 @@
 import './ProgressBar.scss'
-import * as React from 'react'
+import React from 'react'
 import useResize from '../../../hooks/useResize'
 
 type ProgressBarProps = {

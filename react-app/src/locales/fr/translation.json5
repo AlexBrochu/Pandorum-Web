@@ -1,4 +1,12 @@
 {
+  language: 'français',
+  nav: {
+    brand: 'Pandorum',
+    home: 'Accueil',
+    roadmap: 'Objectifs',
+    news: 'Nouvelles',
+    discussions: 'Forum',
+  },
   common: {
     title: 'Bonjour',
     test: {

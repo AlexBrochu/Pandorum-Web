@@ -1,41 +1,57 @@
-import * as React from 'react'
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import React, { useState } from 'react'
+import Button from 'react-bootstrap/Button'
+import { Navbar, Nav } from 'react-bootstrap'
+import { useTranslation } from 'react-i18next'
+import { useLocation } from 'react-router-dom'
 
-type CommonNavbarState = {}
+type CommonNavbarProps = {}
 
-export default class CommonNavbar extends React.Component<
-  {},
-  CommonNavbarState
-> {
-  render() {
-    return (
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-    )
+const CommonNavbar: React.FunctionComponent<CommonNavbarProps> = (
+  props: CommonNavbarProps
+): any => {
+  const { t, i18n } = useTranslation('nav')
+  const [lang, setLang] = useState('fr')
+  const location = useLocation()
+
+  function handleClick() {
+    if (lang === 'fr') {
+      setLang('en')
+    } else {
+      setLang('fr')
+    }
+    i18n.changeLanguage(lang)
   }
+
+  return (
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar.Brand href="/">{t('brand')}</Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link active={location.pathname == '/'} href="/">
+            {t('home')}
+          </Nav.Link>
+          <Nav.Link active={location.pathname == '/roadmap'} href="/roadmap">
+            {t('roadmap')}
+          </Nav.Link>
+          <Nav.Link active={location.pathname == '/news'} href="/news">
+            {t('news')}
+          </Nav.Link>
+          <Nav.Link
+            active={location.pathname == '/discussions'}
+            href="/discussions"
+          >
+            {t('discussions')}
+          </Nav.Link>
+        </Nav>
+        <Nav>
+          <Button onClick={() => handleClick()} variant="primary">
+            {lang.toUpperCase()}
+          </Button>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  )
 }
+
+export default CommonNavbar
