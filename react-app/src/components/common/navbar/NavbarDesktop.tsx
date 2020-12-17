@@ -3,6 +3,7 @@ import useWindowSize from '../../../hooks/useWindowSize'
 import ProfileDropdownDesktop from './ProfileDropdownDesktop'
 import { useTranslation } from 'react-i18next'
 import { useLocation, Link } from 'react-router-dom'
+import logo from '../../../assets/mario-mushroom.png'
 
 type NavbarDesktopProps = {}
 
@@ -30,10 +31,11 @@ const NavbarDesktop: React.FunctionComponent<NavbarDesktopProps> = (
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <Link to="/" className="text-white">
-                {t('brand')}
+                <img className="w-6 h-6 inline-block" src={logo} />
+                <span className="inline-block ml-2">{t('brand')}</span>
               </Link>
             </div>
-            <div className="md:block">
+            <div className="links md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
                 <Link

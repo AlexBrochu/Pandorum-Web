@@ -16,17 +16,19 @@
     }
   }
 
-  a {
-    @apply text-gray-300;
-    @apply px-3;
-    @apply py-2;
-    @apply rounded-md;
-    @apply text-sm;
-    @apply font-medium;
+  .links {
+    a {
+      @apply text-gray-300;
+      @apply px-3;
+      @apply py-2;
+      @apply rounded-md;
+      @apply text-sm;
+      @apply font-medium;
 
-    &:hover {
-      @apply bg-gray-700;
-      @apply text-white;
+      &:hover {
+        @apply bg-gray-700;
+        @apply text-white;
+      }
     }
   }
 
@@ -34,6 +36,17 @@
     a {
       @apply block;
       @apply text-base;
+      @apply text-gray-300;
+      @apply px-3;
+      @apply py-2;
+      @apply rounded-md;
+      @apply text-sm;
+      @apply font-medium;
+
+      &:hover {
+        @apply bg-gray-700;
+        @apply text-white;
+      }
     }
   }
 }
