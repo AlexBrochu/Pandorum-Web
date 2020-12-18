@@ -1,5 +1,10 @@
 @import '../../style/base';
 
-.subsection p {
-  background-color: red;
+.subsection {
+  @apply sm:text-justify;
+  @apply my-4;
+
+  h2 {
+    font-weight: bolder;
+  }
 }

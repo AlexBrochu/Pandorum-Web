@@ -1,0 +1,10 @@
+.media-container {
+  background-color: chartreuse;
+  @apply sm:w-8/12;
+  @apply m-4;
+
+  img {
+    margin: auto;
+    @apply my-4;
+  }
+}

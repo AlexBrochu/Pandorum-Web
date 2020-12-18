@@ -1,7 +1,10 @@
 @import '../../style/base';
 
 .slideshow-card {
+  @apply m-4;
   border: 1px solid black;
+  border-radius: 1rem;
+  padding: 0.25rem;
   .slideup,
   .slidedown {
     max-height: 0;
@@ -13,5 +16,17 @@
   }
   .slidedown {
     max-height: 60px;
+  }
+  h1 {
+    font-weight: 800;
+    font-size: 2rem;
+    @apply sm:text-left;
+  }
+
+  &.alone {
+    @apply sm:w-full;
+  }
+  &.with-media {
+    @apply sm:w-4/12;
   }
 }

@@ -6,11 +6,12 @@ import { useIsVisible } from 'react-is-visible'
 import 'intersection-observer'
 import SlideShowElement from '../slideshow-element/SlideshowElement'
 
-type SlideShowProps = {
+export type SlideShowProps = {
   namespace: string
   title: string
   subtitles: Description[]
   timeLeft: number
+  classNames: string
 }
 
 const SlideShowCard: React.FunctionComponent<SlideShowProps> = (
@@ -62,7 +63,7 @@ const SlideShowCard: React.FunctionComponent<SlideShowProps> = (
   }
 
   return (
-    <div className="slideshow-card" ref={nodeRef}>
+    <div className={`${props.classNames} slideshow-card`} ref={nodeRef}>
       <h1>{t(props.title)}</h1>
       {createSubSection()}
     </div>
