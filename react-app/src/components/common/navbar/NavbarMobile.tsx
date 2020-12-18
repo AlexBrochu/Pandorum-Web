@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import NavbarMobileMenu from './NavbarMobileMenu'
+import logo from '../../../assets/mario-mushroom.png'
 
 type NavbarMobileProps = {}
 
@@ -33,7 +34,8 @@ const NavbarMobile: React.FunctionComponent<NavbarMobileProps> = (
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <Link to="/" className="text-white">
-                {t('brand')}
+                <img className="w-6 h-6 inline-block" src={logo} />
+                <span className="inline-block ml-2">{t('brand')}</span>
               </Link>
             </div>
           </div>

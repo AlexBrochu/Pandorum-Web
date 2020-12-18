@@ -1,4 +1,14 @@
 .navbar {
+  .brand-nav {
+    img {
+      float: left;
+      margin-top: 6px;
+    }
+    span {
+      font-weight: 500;
+      font-size: 1.5rem;
+    }
+  }
   .profile-menu-hover {
     opacity: 0;
     transition: ease-out 0.5s;
@@ -18,16 +28,20 @@
 
   .links {
     a {
+      border-radius: 1rem;
       @apply text-gray-300;
       @apply px-3;
       @apply py-2;
-      @apply rounded-md;
       @apply text-sm;
       @apply font-medium;
 
       &:hover {
         @apply bg-gray-700;
         @apply text-white;
+      }
+      &.active {
+        @apply bg-gray-900;
+        font-weight: bolder;
       }
     }
   }
@@ -46,6 +60,10 @@
       &:hover {
         @apply bg-gray-700;
         @apply text-white;
+      }
+      &.active {
+        @apply bg-gray-900;
+        font-weight: bolder;
       }
     }
   }

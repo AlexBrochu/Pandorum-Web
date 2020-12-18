@@ -26,50 +26,43 @@ const NavbarDesktop: React.FunctionComponent<NavbarDesktopProps> = (
 
   return (
     <nav className={`bg-gray-800 ${width >= 640 ? '' : 'hidden'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 brand-nav">
               <Link to="/" className="text-white">
                 <img className="w-6 h-6 inline-block" src={logo} />
                 <span className="inline-block ml-2">{t('brand')}</span>
               </Link>
             </div>
-            <div className="links md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-                <Link
-                  to="/"
-                  className={location.pathname == '/' ? 'bg-gray-900' : ''}
-                >
-                  {t('home')}
-                </Link>
+          </div>
+          <div className="links md:block">
+            <div className="flex items-baseline space-x-4 justify-center">
+              {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
+              <Link to="/" className={location.pathname == '/' ? 'active' : ''}>
+                {t('home')}
+              </Link>
 
-                <Link
-                  to="/roadmap"
-                  className={
-                    location.pathname == '/roadmap' ? 'bg-gray-900' : ''
-                  }
-                >
-                  {t('roadmap')}
-                </Link>
+              <Link
+                to="/roadmap"
+                className={location.pathname == '/roadmap' ? 'active' : ''}
+              >
+                {t('roadmap')}
+              </Link>
 
-                <Link
-                  to="/news"
-                  className={location.pathname == '/news' ? 'bg-gray-900' : ''}
-                >
-                  {t('news')}
-                </Link>
+              <Link
+                to="/news"
+                className={location.pathname == '/news' ? 'active' : ''}
+              >
+                {t('news')}
+              </Link>
 
-                <Link
-                  to="/discussions"
-                  className={
-                    location.pathname == '/discussions' ? 'bg-gray-900' : ''
-                  }
-                >
-                  {t('discussions')}
-                </Link>
-              </div>
+              <Link
+                to="/discussions"
+                className={location.pathname == '/discussions' ? 'active' : ''}
+              >
+                {t('discussions')}
+              </Link>
             </div>
           </div>
           <div className="md:block">
@@ -95,7 +88,7 @@ const NavbarDesktop: React.FunctionComponent<NavbarDesktopProps> = (
               {/* <ProfileDropdownDesktop></ProfileDropdownDesktop> */}
               <button
                 onClick={() => handleClick()}
-                className="ml-3 bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                className="ml-3 bg-gray-800 p-1 rounded-full text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
               >
                 <span className="sr-only">Change Language</span>
                 <div className="h-6 w-6">{lang.toUpperCase()}</div>

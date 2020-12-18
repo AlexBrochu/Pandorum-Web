@@ -31,27 +31,27 @@ const NavbarMobileMenu: React.FunctionComponent<NavbarMobileMenuProps> = (
     --> */}
       <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-        <Link to="/" className={location.pathname == '/' ? 'bg-gray-900' : ''}>
+        <Link to="/" className={location.pathname == '/' ? 'active' : ''}>
           {t('home')}
         </Link>
 
         <Link
           to="/roadmap"
-          className={location.pathname == '/roadmap' ? 'bg-gray-900' : ''}
+          className={location.pathname == '/roadmap' ? 'active' : ''}
         >
           {t('roadmap')}
         </Link>
 
         <Link
           to="/news"
-          className={location.pathname == '/news' ? 'bg-gray-900' : ''}
+          className={location.pathname == '/news' ? 'active' : ''}
         >
           {t('news')}
         </Link>
 
         <Link
           to="/discussions"
-          className={location.pathname == '/discussions' ? 'bg-gray-900' : ''}
+          className={location.pathname == '/discussions' ? 'active' : ''}
         >
           {t('discussions')}
         </Link>
