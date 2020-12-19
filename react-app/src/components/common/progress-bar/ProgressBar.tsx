@@ -5,6 +5,7 @@ import useResize from '../../../hooks/useResize'
 type ProgressBarProps = {
   timeleft: number
   timetotal: number
+  complete: boolean
 }
 
 const ProgessBar: React.FunctionComponent<ProgressBarProps> = (

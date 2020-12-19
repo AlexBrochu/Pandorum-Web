@@ -3,7 +3,7 @@ import useWindowSize from '../../../hooks/useWindowSize'
 import ProfileDropdownDesktop from './ProfileDropdownDesktop'
 import { useTranslation } from 'react-i18next'
 import { useLocation, Link } from 'react-router-dom'
-import logo from '../../../assets/mario-mushroom.png'
+import logo from '../../../../public/mario-mushroom.png'
 
 type NavbarDesktopProps = {}
 

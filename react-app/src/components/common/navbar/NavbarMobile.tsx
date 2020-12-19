@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import NavbarMobileMenu from './NavbarMobileMenu'
-import logo from '../../../assets/mario-mushroom.png'
+import logo from '../../../../public/mario-mushroom.png'
 
 type NavbarMobileProps = {}
 

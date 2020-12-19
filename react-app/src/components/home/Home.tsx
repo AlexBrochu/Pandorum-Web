@@ -39,7 +39,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = (): any => {
         <div className="mx-auto py-6 sm:px-6 lg:px-8">
           <div className="px-4 py-6 sm:px-0">
             <div className="border-4 border-gray-200 rounded-lg">
-              {[0, 1, 2, 3, 4].map((value) => (
+              {[1, 2, 3, 4].map((value) => (
                 <CardContainer
                   key={value}
                   reverse={!!(value % 2)}

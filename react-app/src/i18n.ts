@@ -16,7 +16,8 @@ i18n
     },
     resources:{
       en, fr
-    }
+    }, 
+    lng: 'en'
   })
 
 export default i18n
