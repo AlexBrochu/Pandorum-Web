@@ -2,6 +2,7 @@ import './SlideshowElement.scss'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Description } from '../slideshow-card/SlideshowText'
+import ProgressBar from '../progress-bar/ProgressBar'
 
 type SlideShowElementProps = {
   namespace: string
@@ -11,6 +12,7 @@ type SlideShowElementProps = {
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => void
   index: number
+  timeTotal: number
 }
 
 const SlideShowElement: React.FunctionComponent<SlideShowElementProps> = (
@@ -29,6 +31,12 @@ const SlideShowElement: React.FunctionComponent<SlideShowElementProps> = (
       <p className={props.isActive ? 'slidedown' : 'slideup'}>
         {t(props.slide.description)}
       </p>
+      {props.isActive && (
+        <ProgressBar
+          timetotal={props.timeTotal}
+          isActive={props.isActive}
+        ></ProgressBar>
+      )}
     </div>
   )
 }

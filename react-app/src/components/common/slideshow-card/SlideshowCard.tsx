@@ -1,6 +1,6 @@
 import './SlideshowCard.scss'
 import { Description } from './SlideshowText'
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useIsVisible } from 'react-is-visible'
 import 'intersection-observer'
@@ -18,19 +18,22 @@ const SlideShowCard: React.FunctionComponent<SlideShowProps> = (
   props: SlideShowProps
 ): any => {
   const { t } = useTranslation(props.namespace)
-  const nodeRef = React.useRef()
+  const nodeRef = useRef()
   const isVisible = useIsVisible(nodeRef)
 
   // Trigger loop between active element
-  const [currentState, setCurrentState] = React.useState(0)
+  const [currentState, setCurrentState] = useState(0)
+  const [totalTimeByElement, setTotalTimeByElement] = useState(
+    props.timeLeft / props.subtitles.length
+  )
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isVisible) {
       const timer = setTimeout(() => {
         if (currentState >= props.subtitles.length - 1) {
           setCurrentState(0)
         } else setCurrentState(currentState + 1)
-      }, 3000)
+      }, totalTimeByElement * 1000)
       // Clear timeout if the component is unmounted
       return () => clearTimeout(timer)
     }
@@ -56,6 +59,7 @@ const SlideShowCard: React.FunctionComponent<SlideShowProps> = (
           slide={props.subtitles[index]}
           handleClickAnimation={handleClickAnimation}
           index={index}
+          timeTotal={totalTimeByElement}
         ></SlideShowElement>
       )
     }

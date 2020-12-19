@@ -1,35 +1,39 @@
 import './ProgressBar.scss'
-import React from 'react'
-import useResize from '../../../hooks/useResize'
+import React, { useState, useRef, useEffect } from 'react'
 
 type ProgressBarProps = {
-  timeleft: number
   timetotal: number
-  complete: boolean
+  isActive: boolean
 }
 
 const ProgessBar: React.FunctionComponent<ProgressBarProps> = (
   props: ProgressBarProps
 ): any => {
-  const nodeRef = React.useRef()
-  const { width, height } = useResize(nodeRef)
-  const [timeleft, setTimeleft] = React.useState(props.timeleft)
-  const [progressBarWidth, setProgressBarWidth] = React.useState(
+  const nodeRef: React.MutableRefObject<any> = useRef()
+  let { width, height } = { width: 0, height: 0 }
+  const [timeleft, setTimeleft] = useState(props.timetotal - 1)
+  const [progressBarWidth, setProgressBarWidth] = useState(
     calculateProgressBarWidth()
   )
 
   function calculateProgressBarWidth(): number {
-    return (props.timeleft * width) / props.timetotal
+    const progressWidth =
+      ((props.timetotal - timeleft) * width) / props.timetotal
+    return progressWidth
   }
 
-  React.useEffect(() => {
-    if (timeleft > 0) {
+  useEffect(() => {
+    width = nodeRef.current.clientWidth
+    if (props.isActive) {
       const timer = setTimeout(() => {
         setTimeleft(timeleft - 1)
       }, 1000)
       setProgressBarWidth(calculateProgressBarWidth())
       // Clear timeout if the component is unmounted
       return () => clearTimeout(timer)
+    } else {
+      // reset timer
+      setTimeleft(props.timetotal)
     }
   })
 
