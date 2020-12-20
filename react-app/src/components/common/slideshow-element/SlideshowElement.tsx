@@ -24,19 +24,23 @@ const SlideShowElement: React.FunctionComponent<SlideShowElementProps> = (
     <div
       key={props.index}
       data-key={props.index}
-      className="subsection"
+      className="subsection grid grid-cols-2 gap-4"
       onClick={props.handleClickAnimation}
     >
-      <h2 data-key={props.index}>{t(props.slide.title)}</h2>
-      <p className={props.isActive ? 'slidedown' : 'slideup'}>
-        {t(props.slide.description)}
-      </p>
-      {props.isActive && (
+      <div className="col-span-2">
+        <h2 data-key={props.index}>{t(props.slide.title)}</h2>
+      </div>
+      <div className={props.isActive ? 'slidedown' : 'slideup'}>
         <ProgressBar
           timetotal={props.timeTotal}
           isActive={props.isActive}
         ></ProgressBar>
-      )}
+      </div>
+      <div>
+        <p className={props.isActive ? 'slidedown' : 'slideup'}>
+          {t(props.slide.description)}
+        </p>
+      </div>
     </div>
   )
 }
