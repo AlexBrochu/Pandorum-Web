@@ -1,6 +1,28 @@
 @import '../../style/base';
 
 .subsection {
+  .card-content {
+    .progress-container {
+      width: 1rem;
+    }
+    .content {
+      margin: 10px;
+    }
+  }
+
+  .slideup,
+  .slidedown {
+    max-height: 0;
+    overflow-y: hidden;
+    -webkit-transition: max-height 0.5s ease-in-out;
+    -moz-transition: max-height 0.5s ease-in-out;
+    -o-transition: max-height 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out;
+  }
+  .slidedown {
+    max-height: 300px;
+  }
+
   @apply sm:text-justify;
   @apply my-4;
 

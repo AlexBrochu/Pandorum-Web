@@ -1,5 +1,5 @@
 import './ProgressBar.scss'
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 type ProgressBarProps = {
   timetotal: number
@@ -9,41 +9,25 @@ type ProgressBarProps = {
 const ProgessBar: React.FunctionComponent<ProgressBarProps> = (
   props: ProgressBarProps
 ): any => {
-  const nodeRef: React.MutableRefObject<any> = useRef()
-  let { width, height } = { width: 0, height: 0 }
-  const [timeleft, setTimeleft] = useState(props.timetotal - 1)
-  const [progressBarLength, setProgressBarLength] = useState(
-    calculateProgressBarLength()
-  )
-
-  function calculateProgressBarLength(): number {
-    const progressLength =
-      ((props.timetotal - timeleft) * height) / props.timetotal
-    return progressLength
-  }
-
+  const [active, setActive] = useState(false)
   useEffect(() => {
-    height = nodeRef.current.clientHeight
-    if (props.isActive) {
+    if (!active && props.isActive) {
       const timer = setTimeout(() => {
-        setTimeleft(timeleft - 1)
-      }, 1000)
-      setProgressBarLength(calculateProgressBarLength())
+        setActive(true)
+      }, 20)
       // Clear timeout if the component is unmounted
       return () => clearTimeout(timer)
-    } else {
-      // reset timer
-      setTimeleft(props.timetotal)
+    }
+    if (active && !props.isActive) {
+      setActive(false)
     }
   })
-
   return (
-    <div className="progressBar" ref={nodeRef} style={{ height: '40px' }}>
+    <div className="progressBar">
       <div
-        className="bar"
+        className={`${active ? 'active' : 'notransition'} bar`}
         style={{
-          transition: 'height 1s ease-in-out',
-          height: progressBarLength,
+          transition: 'height ' + props.timetotal + 's ease-in',
         }}
       ></div>
     </div>
