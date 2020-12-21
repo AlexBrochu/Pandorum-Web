@@ -14,6 +14,9 @@
     },
   },
   home: {
+    mainPage: {
+      title: 'Accueil',
+    },
     cardDemo: {
       title: 'Super Jeu',
       description1: {
@@ -24,6 +27,26 @@
         title: 'Please Work',
         subtitle: 'Much Wow',
       },
+    },
+  },
+  roadmap: {
+    mainPage: {
+      title: 'Objectifs',
+    },
+    info1: {
+      time: '1 Décembre, 2020',
+      title: 'Création du projet',
+      description: 'Base du jeux',
+    },
+    info2: {
+      time: '5 Décembre, 2020',
+      title: 'Discussions des objects du jeu',
+      description: 'Planification des objects disponibles dans la première version du jeu',
+    },
+    info3: {
+      time: '15 Décembre, 2020',
+      title: 'Discussions sur le media',
+      description: 'Classification des musiques disponibles dans la première version du jeu',
     },
   },
 }

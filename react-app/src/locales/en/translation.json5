@@ -14,6 +14,9 @@
     },
   },
   home: {
+    mainPage: {
+      title: 'Home',
+    },
     cardDemo: {
       title: 'Super Game',
       description1: {
@@ -24,6 +27,26 @@
         title: 'Please Work',
         subtitle: 'Much WowMuch WowMuch WowMuch WowMuch WowMuch WowMuch WowMuch WowMuch WowMuch WowMuch WowMuch Wow',
       },
+    },
+  },
+  roadmap: {
+    mainPage: {
+      title: 'Roadmap',
+    },
+    info1: {
+      time: '1 December, 2020',
+      title: 'Project Creation',
+      description: 'Start for the project Pandorum',
+    },
+    info2: {
+      time: '5 December, 2020',
+      title: 'Rebranding Game Name',
+      description: 'Game name changed to Dragonrune because it was already used by another game.',
+    },
+    info3: {
+      time: '15 December, 2020',
+      title: 'Brainstorming Game Assets',
+      description: 'Classification of songs, items and other assets for the game first version.',
     },
   },
 }

@@ -2,11 +2,8 @@
 
 .subsection {
   .card-content {
-    .progress-container {
-      width: 1rem;
-    }
     .content {
-      margin: 10px;
+      margin: 0.75rem;
     }
   }
 
@@ -20,7 +17,7 @@
     transition: max-height 0.5s ease-in-out;
   }
   .slidedown {
-    max-height: 300px;
+    max-height: 15rem;
   }
 
   @apply sm:text-justify;
