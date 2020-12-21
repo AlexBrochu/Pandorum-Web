@@ -17,7 +17,8 @@
         font-weight: 800;
       }
       p {
-        @apply sm:text-right
+        text-align: left;
+        @apply sm:text-right;
         margin-right: 0.5rem;
         font-size: 0.9rem;
       }
@@ -30,6 +31,9 @@
   .content-right {
     .content-title {
       @apply sm:flex-row-reverse;
+      p {
+        @apply sm:text-right;
+      }
     }
     p {
       @apply sm:text-right;
