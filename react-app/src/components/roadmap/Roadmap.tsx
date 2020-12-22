@@ -1,6 +1,7 @@
 import './Roadmap.scss'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import TimeLineCell from './time-line/TimeLineCell'
 
 type RoadmapPageProps = {}
 
@@ -18,51 +19,36 @@ const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = (): any => {
       <main>
         <div className="mx-auto py-6 sm:px-6 lg:px-8">
           <div className="px-4 py-6 sm:px-0">
-            <div className="time-cell flex flex-row">
-              <div className="content-left">
-                <div className="content-title">
-                  <h1>{t('info1.title')}</h1>
-                  <p>{t('info1.time')}</p>
-                </div>
-
-                <p>{t('info1.description')}</p>
-              </div>
-              <div className="timeline-cell">
-                <div className="top-triangle"></div>
-                <div className="timeline-body bg-black"></div>
-              </div>
-
-              <div className="content-right"></div>
-            </div>
-            <div className="time-cell flex flex-row">
-              <div className="content-left"></div>
-              <div className="timeline-cell">
-                <div className="timeline-body bg-gray-700"></div>
-              </div>
-
-              <div className="content-right">
-                <div className="content-title">
-                  <h1>{t('info1.title')}</h1>
-                  <p>{t('info1.time')}</p>
-                </div>
-
-                <p>{t('info1.description')}</p>
-              </div>
-            </div>
-            <div className="time-cell flex flex-row">
-              <div className="content-left">
-                <div className="content-title">
-                  <h1>{t('info1.title')}</h1>
-                  <p>{t('info1.time')}</p>
-                </div>
-
-                <p>{t('info1.description')}</p>
-              </div>
-              <div className="timeline-cell">
-                <div className="timeline-body last-time bg-black"></div>
-              </div>
-              <div className="content-right"></div>
-            </div>
+            <TimeLineCell
+              isFirst={true}
+              isLast={false}
+              contentLeft={{
+                title: 'info1.title',
+                time: 'info1.time',
+                description: 'info1.description',
+              }}
+              contentRight={null}
+            ></TimeLineCell>
+            <TimeLineCell
+              isFirst={false}
+              isLast={false}
+              contentLeft={null}
+              contentRight={{
+                title: 'info1.title',
+                time: 'info1.time',
+                description: 'info1.description',
+              }}
+            ></TimeLineCell>
+            <TimeLineCell
+              isFirst={false}
+              isLast={true}
+              contentLeft={{
+                title: 'info1.title',
+                time: 'info1.time',
+                description: 'info1.description',
+              }}
+              contentRight={null}
+            ></TimeLineCell>
           </div>
         </div>
       </main>
