@@ -1,0 +1,23 @@
+.time-detail-container {
+  display: flex;
+  flex-direction: column;
+  @apply sm:flex-row;
+  .content-title {
+    p {
+      text-align: left;
+      margin-right: 0.5rem;
+      font-size: 0.9rem;
+    }
+  }
+  .content-description {
+    margin-left: 2rem;
+    @apply sm:ml-0;
+    p {
+      font-size: 1rem;
+      text-align: left;
+    }
+    h1 {
+      font-weight: bolder;
+    }
+  }
+}

@@ -3,4 +3,25 @@
 body {
   background-color: $background-color;
   font-family: $font-stack;
+
+  .app-container {
+    @apply md:pl-20;
+    @apply md:pr-20;
+    background-color: #787878;
+  }
+
+  header {
+    border-bottom: 1px solid black;
+  }
+  main {
+    height: 1080px;
+  }
+  header,
+  main {
+    background-color: #ffffff;
+  }
+  .footer {
+    @apply h-8;
+    background-color: black;
+  }
 }
