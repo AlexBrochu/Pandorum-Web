@@ -4,23 +4,14 @@ import { useLocation, Link } from 'react-router-dom'
 
 type NavbarMobileMenuProps = {
   show: boolean
+  handleToggle: Function
 }
 
 const NavbarMobileMenu: React.FunctionComponent<NavbarMobileMenuProps> = (
   props: NavbarMobileMenuProps
 ): any => {
-  const { t, i18n } = useTranslation('nav')
-  const [lang, setLang] = useState('fr')
+  const { t } = useTranslation('nav')
   const location = useLocation()
-
-  function handleClick() {
-    if (lang === 'fr') {
-      setLang('en')
-    } else {
-      setLang('fr')
-    }
-    i18n.changeLanguage(lang)
-  }
 
   return (
     <div className={`${props.show ? '' : 'hidden'} navbar-mobile md:hidden`}>
@@ -31,13 +22,18 @@ const NavbarMobileMenu: React.FunctionComponent<NavbarMobileMenuProps> = (
     --> */}
       <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-        <Link to="/" className={location.pathname == '/' ? 'active' : ''}>
+        <Link
+          to="/"
+          className={location.pathname == '/' ? 'active' : ''}
+          onClick={() => props.handleToggle()}
+        >
           {t('home')}
         </Link>
 
         <Link
           to="/roadmap"
           className={location.pathname == '/roadmap' ? 'active' : ''}
+          onClick={() => props.handleToggle()}
         >
           {t('roadmap')}
         </Link>
@@ -45,6 +41,7 @@ const NavbarMobileMenu: React.FunctionComponent<NavbarMobileMenuProps> = (
         <Link
           to="/news"
           className={location.pathname == '/news' ? 'active' : ''}
+          onClick={() => props.handleToggle()}
         >
           {t('news')}
         </Link>
@@ -52,6 +49,7 @@ const NavbarMobileMenu: React.FunctionComponent<NavbarMobileMenuProps> = (
         <Link
           to="/discussions"
           className={location.pathname == '/discussions' ? 'active' : ''}
+          onClick={() => props.handleToggle()}
         >
           {t('discussions')}
         </Link>

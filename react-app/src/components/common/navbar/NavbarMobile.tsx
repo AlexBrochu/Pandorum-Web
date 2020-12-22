@@ -97,7 +97,10 @@ const NavbarMobile: React.FunctionComponent<NavbarMobileProps> = (
           </div>
         </div>
       </div>
-      <NavbarMobileMenu show={toggle}></NavbarMobileMenu>
+      <NavbarMobileMenu
+        show={toggle}
+        handleToggle={handleOpenMenu}
+      ></NavbarMobileMenu>
     </nav>
   )
 }
