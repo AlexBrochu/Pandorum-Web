@@ -2,6 +2,7 @@ import './TimeLineCell.scss'
 import React, { FunctionComponent } from 'react'
 import TimeDetailContainer from '../time-detail-container/TimeDetailContainer'
 import { TimeLineContent } from './TimeLineContent'
+import { BsGear } from 'react-icons/bs'
 
 type TimeLineCellProps = {
   isFirst: boolean
@@ -21,6 +22,7 @@ const TimeLineCell: FunctionComponent<TimeLineCellProps> = (
         {props.contentLeft && (
           <TimeDetailContainer
             timeContent={props.contentLeft}
+            icon={<BsGear />}
           ></TimeDetailContainer>
         )}
       </div>
@@ -37,6 +39,7 @@ const TimeLineCell: FunctionComponent<TimeLineCellProps> = (
       <div className="content-right">
         {props.contentRight && (
           <TimeDetailContainer
+            icon={<BsGear />}
             timeContent={props.contentRight}
           ></TimeDetailContainer>
         )}
