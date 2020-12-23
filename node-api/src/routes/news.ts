@@ -1,7 +1,7 @@
 import * as bodyParser from "body-parser";
 import * as express from "express";
 import {Logger} from "../logger/logger"
-import news from "../assets/news/showdown-demo.md"
+// import news from "../assets/news/showdown-demo.md"
 
 class News {
 

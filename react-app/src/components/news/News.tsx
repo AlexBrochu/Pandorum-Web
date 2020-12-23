@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import news1 from '../../assets/news/showdown-demo.md'
 import ReactMarkdown from 'react-markdown'
+import { getAllNewsFile } from '../../services/news/NewsService'
 
 type NewsPageProps = {}
 
@@ -11,7 +12,13 @@ const NewsPage: React.FunctionComponent<NewsPageProps> = (): any => {
   const [filesNews, setFilesNews] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  useEffect(() => {}, [])
+  useEffect(() => {
+    const filesNews = async () => {
+      const response = await getAllNewsFile('fr')
+      alert(response.message)
+    }
+    filesNews()
+  }, [i18n.language])
 
   return (
     <div className="news-page-container">
