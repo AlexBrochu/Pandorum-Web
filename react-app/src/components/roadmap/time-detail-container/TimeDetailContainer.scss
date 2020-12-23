@@ -21,3 +21,16 @@
     }
   }
 }
+
+.content-left .time-detail-container {
+  display: flex;
+  @apply sm:flex-row-reverse;
+  .content-title {
+    p {
+      text-align: right;
+    }
+  }
+  .content-description {
+    margin-left: 0;
+  }
+}

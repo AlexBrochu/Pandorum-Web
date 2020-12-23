@@ -7,7 +7,8 @@ import { BsGear } from 'react-icons/bs'
 type TimeLineCellProps = {
   isFirst: boolean
   isLast: boolean
-  content: TimeLineContent
+  contentLeft: TimeLineContent
+  contentRigth: TimeLineContent
 }
 
 const TimeLineCell: FunctionComponent<TimeLineCellProps> = (
@@ -17,6 +18,14 @@ const TimeLineCell: FunctionComponent<TimeLineCellProps> = (
     <div
       className={`${props.isLast ? 'last-cell' : ''} time-cell flex flex-row`}
     >
+      <div className="content-left">
+        {props.contentLeft && (
+          <TimeDetailContainer
+            icon={<BsGear />}
+            timeContent={props.contentLeft}
+          ></TimeDetailContainer>
+        )}
+      </div>
       <div className="timeline-cell">
         <div
           className={`${
@@ -27,10 +36,10 @@ const TimeLineCell: FunctionComponent<TimeLineCellProps> = (
       </div>
 
       <div className="content-right">
-        {props.content && (
+        {props.contentRigth && (
           <TimeDetailContainer
             icon={<BsGear />}
-            timeContent={props.content}
+            timeContent={props.contentRigth}
           ></TimeDetailContainer>
         )}
       </div>

@@ -18,8 +18,8 @@ const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = (): any => {
       </header>
       <main>
         <div className="roadmap-main-container mx-auto py-6 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row px-4 py-6 sm:px-0">
-            <div className="pb-5 sm:w-4/12">
+          <div className="flex flex-col lg:flex-row px-4 py-6 sm:px-0">
+            <div className="pb-5 lg:w-4/12">
               <h2>Our Mission</h2>
               <hr></hr>
               <p>
@@ -27,20 +27,22 @@ const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = (): any => {
                 blablablablablablablabla
               </p>
             </div>
-            <div className="sm:w-8/12">
+            <div className="lg:w-8/12">
               <TimeLineCell
                 isFirst={true}
                 isLast={false}
-                content={{
+                contentLeft={{
                   title: 'info1.title',
                   time: 'info1.time',
                   description: 'info1.description',
                 }}
+                contentRigth={null}
               ></TimeLineCell>
               <TimeLineCell
                 isFirst={false}
                 isLast={false}
-                content={{
+                contentLeft={null}
+                contentRigth={{
                   title: 'info1.title',
                   time: 'info1.time',
                   description: 'info1.description',
@@ -49,11 +51,12 @@ const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = (): any => {
               <TimeLineCell
                 isFirst={false}
                 isLast={true}
-                content={{
+                contentLeft={{
                   title: 'info1.title',
                   time: 'info1.time',
                   description: 'info1.description',
                 }}
+                contentRigth={null}
               ></TimeLineCell>
             </div>
           </div>
