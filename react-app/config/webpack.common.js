@@ -50,6 +50,7 @@ module.exports = {
   // Determine how modules within the project are treated
   module: {
     rules: [
+      { test: /\.md?$/, exclude: /node_modules/, use: ['raw-loader'] },
       // JavaScript: Use Babel to transpile JavaScript files
       { test: /\.tsx?$/, exclude: /node_modules/, use: ['ts-loader'] },
       { test: /\.json5?$/, exclude: /node_modules/, use: ['json5-loader'] },

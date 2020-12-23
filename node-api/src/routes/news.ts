@@ -1,12 +1,12 @@
 import * as bodyParser from "body-parser";
 import * as express from "express";
-import User from "./user";
-import HelloWord from "./hello-word";
-import News from "./news";
+import {Logger} from "../logger/logger"
+import news from "../assets/news/showdown-demo.md"
 
-class Routes {
+class News {
 
     public express: express.Application;
+    public logger: Logger
 
     // array to hold users
     public users: any[];
@@ -15,6 +15,7 @@ class Routes {
         this.express = express();
         this.middleware();
         this.routes();
+        this.logger = new Logger();
     }
 
     // Configure Express middleware.
@@ -25,11 +26,15 @@ class Routes {
 
     private routes(): void {
 
-        // user route
-        this.express.use("/", User);
-        this.express.use("/", HelloWord);
-        this.express.use("/", News);
+        // request to get all the news
+        this.express.get("/news", (req, res, next) => {
+          console.log(req.headers.language)
+          this.logger.info("news");
+            res.json({
+              "message": req.headers.language
+            });
+        });
     }
 }
 
-export default new Routes().express;
+export default new News().express;

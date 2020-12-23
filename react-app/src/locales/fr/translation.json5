@@ -49,4 +49,9 @@
       description: 'Classification des musiques disponibles dans la première version du jeu',
     },
   },
+  news: {
+    mainPage: {
+      title: 'Nouvelles',
+    },
+  },
 }
