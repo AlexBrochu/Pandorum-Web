@@ -3,5 +3,14 @@
     // max-width: 80rem;
     margin-left: auto;
     margin-right: auto;
+
+    .title-mission {
+      margin-bottom: 3rem;
+      @apply lg:mb-0;
+      @apply lg:mr-8;
+      h2 {
+        font-weight: 800;
+      }
+    }
   }
 }

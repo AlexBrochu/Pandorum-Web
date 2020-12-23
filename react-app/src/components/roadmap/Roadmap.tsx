@@ -8,7 +8,7 @@ type RoadmapPageProps = {}
 const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = (): any => {
   const { t } = useTranslation('roadmap')
   return (
-    <div className="roadmap-page">
+    <div className="page-container roadmap-page">
       <header className="shadow">
         <div className="mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold leading-tight text-gray-900">
@@ -19,7 +19,7 @@ const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = (): any => {
       <main>
         <div className="roadmap-main-container mx-auto py-6 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row px-4 py-6 sm:px-0">
-            <div className="pb-5 lg:w-4/12">
+            <div className="title-mission pb-5 lg:w-4/12">
               <h2>Our Mission</h2>
               <hr></hr>
               <p>

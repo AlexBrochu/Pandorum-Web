@@ -27,11 +27,11 @@ const TimeLineCell: FunctionComponent<TimeLineCellProps> = (
         )}
       </div>
       <div className="timeline-cell">
-        <div
-          className={`${
-            props.isFirst ? 'first-time' : ''
-          } timeline-body bg-black`}
-        ></div>
+        <div className={`${props.isFirst ? 'first-time' : ''} timeline-body`}>
+          <div className="spot-outer-circle">
+            <div className="spot-inner-circle"></div>
+          </div>
+        </div>
         {props.isLast && <div className="down-triangle"></div>}
       </div>
 

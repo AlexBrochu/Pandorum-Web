@@ -5,7 +5,7 @@ type NewsPageProps = {}
 
 const NewsPage: React.FunctionComponent<NewsPageProps> = (): any => {
   return (
-    <div>
+    <div className="page-container">
       <header className="bg-white shadow">
         <div className="mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold leading-tight text-gray-900">
