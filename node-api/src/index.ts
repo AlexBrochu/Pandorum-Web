@@ -1,6 +1,6 @@
 import * as http from "http";
-import App from "./src/app";
-import { Logger } from "./src/logger/logger";
+import App from "./app";
+import { Logger } from "./logger/logger";
 
 const port = 3080;
 
