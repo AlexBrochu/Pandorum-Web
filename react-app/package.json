@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
+    "start:prod": "cross-env NODE_ENV=production webpack serve --config config/webpack.prod.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js"
   },
   "proxy": "http://localhost:3080",
@@ -12,7 +13,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/react-router-dom": "^5.1.6",
     "autoprefixer": "^10.1.0",
     "i18next": "^19.8.4",
     "intersection-observer": "^0.12.0",
@@ -27,6 +27,7 @@
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.1.6",
     "@babel/core": "^7.12.1",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.1",

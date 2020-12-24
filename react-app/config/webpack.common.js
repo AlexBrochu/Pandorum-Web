@@ -34,6 +34,13 @@ module.exports = {
             ignore: ['*.DS_Store'],
           },
         },
+        {
+          from: paths.assets,
+          to: 'assets',
+          globOptions: {
+            ignore: ['*.DS_Store'],
+          },
+        },
       ],
     }),
 

@@ -1,4 +1,4 @@
-import * as http from "http";
+import http from "http";
 import App from "./app";
 import { Logger } from "./logger/logger";
 

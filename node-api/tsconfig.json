@@ -4,10 +4,9 @@
 		"noImplicitAny": true,
 		"target": "es5",
 		"lib": ["es5", "es6", "dom"],
-		"jsx": "react",
 		"allowJs": true,
-		// "moduleResolution": "node",
-		// "plugins": [{"name": "typescript-tslint-plugin"}], 
-		// "esModuleInterop": true
+		"moduleResolution": "node",
+		"plugins": [{"name": "typescript-tslint-plugin"}], 
+		"esModuleInterop": true
 	}
 }
