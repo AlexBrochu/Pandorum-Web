@@ -14,7 +14,7 @@ module.exports = {
   // Where webpack outputs the assets and bundles
   output: {
     path: paths.build,
-    filename: 'api.bundle.js',
+    filename: '[name].bundle.js',
     publicPath: '/',
   },
 

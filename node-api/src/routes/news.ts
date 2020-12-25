@@ -1,21 +1,22 @@
 import bodyParser from "body-parser";
 import express from "express";
 import {Logger} from "../logger/logger"
-// import news from "../assets/news/showdown-demo.md"
+import news from "../assets/news/showdown-demo.md"
 
 class News {
 
     public express: express.Application;
     public logger: Logger
 
-    // array to hold users
-    public users: any[];
+    // array to hold news
+    public news: any[];
 
     constructor() {
         this.express = express();
         this.middleware();
         this.routes();
         this.logger = new Logger();
+        this.news = [news];
     }
 
     // Configure Express middleware.
@@ -31,7 +32,8 @@ class News {
           console.log(req.headers.language)
           this.logger.info("news");
             res.json({
-              "message": req.headers.language
+              "info": req.headers.language,
+              "message": this.news, 
             });
         });
     }

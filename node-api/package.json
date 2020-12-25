@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
-    "start:dev": "nodemon dist/api.bundle.js",
-    "start:test": "cross-env NODE_ENV=development webpack --config config/webpack.dev.js",
+    "start:dev": "nodemon",
+    "main": "ts-node dist/main.bundle.js",
+    "dev": "cross-env NODE_ENV=development webpack --config config/webpack.dev.js && npm run main",
     "start:prod": "npm run build && npm run start:dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "tslint": "tslint --project tsconfig.json --config tslint.json",
     "tslint-fix": "tslint --project tsconfig.json --config tslint.json --fix",
-    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js"
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
+    "prod": "npm run build && npm run main"
   },
   "keywords": [],
   "author": "",
