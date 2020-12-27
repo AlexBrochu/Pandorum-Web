@@ -49,4 +49,9 @@
       description: 'Classification of songs, items and other assets for the game first version.',
     },
   },
+  news: {
+    mainPage: {
+      title: 'News',
+    },
+  },
 }

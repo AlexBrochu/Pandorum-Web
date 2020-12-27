@@ -1,7 +1,8 @@
-import * as bodyParser from "body-parser";
-import * as express from "express";
+import bodyParser from "body-parser";
+import express from "express";
 import User from "./user";
 import HelloWord from "./hello-word";
+import News from "./news";
 
 class Routes {
 
@@ -27,6 +28,7 @@ class Routes {
         // user route
         this.express.use("/", User);
         this.express.use("/", HelloWord);
+        this.express.use("/", News);
     }
 }
 
