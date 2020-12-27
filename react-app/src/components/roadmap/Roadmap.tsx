@@ -31,18 +31,16 @@ const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = (): any => {
               <TimeLineCell
                 isFirst={true}
                 isLast={false}
-                contentLeft={{
+                content={{
                   title: 'info1.title',
                   time: 'info1.time',
                   description: 'info1.description',
                 }}
-                contentRigth={null}
               ></TimeLineCell>
               <TimeLineCell
                 isFirst={false}
                 isLast={false}
-                contentLeft={null}
-                contentRigth={{
+                content={{
                   title: 'info1.title',
                   time: 'info1.time',
                   description: 'info1.description',
@@ -51,12 +49,11 @@ const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = (): any => {
               <TimeLineCell
                 isFirst={false}
                 isLast={true}
-                contentLeft={{
+                content={{
                   title: 'info1.title',
                   time: 'info1.time',
                   description: 'info1.description',
                 }}
-                contentRigth={null}
               ></TimeLineCell>
             </div>
           </div>
