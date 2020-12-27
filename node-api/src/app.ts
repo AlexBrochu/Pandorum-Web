@@ -1,5 +1,5 @@
-import * as bodyParser from "body-parser";
-import * as express from "express";
+import bodyParser from "body-parser";
+import express from "express";
 import Routes from "./routes/routes";
 const path = require('path');
 
@@ -27,7 +27,8 @@ class App {
     private routes(): void {
 
         this.express.get("/", (req, res, next) => {
-            res.sendFile(process.cwd() + "/react-app/build/index.html");
+            res.send("Hello world")
+            // res.sendFile(process.cwd() + "/react-app/build/index.html");
         });
 
         // user route

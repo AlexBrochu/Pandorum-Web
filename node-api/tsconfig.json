@@ -1,11 +1,14 @@
 {
 	"compilerOptions": {
 		"outDir": "./dist/",
-		"noImplicitAny": true,
+		"noImplicitAny": false,
 		"target": "es5",
+		"module": "commonjs",
 		"lib": ["es5", "es6", "dom"],
-		"jsx": "react",
 		"allowJs": true,
-		"moduleResolution": "node"
-	}
+		"moduleResolution": "node",
+		"plugins": [{"name": "typescript-tslint-plugin"}], 
+		"esModuleInterop": true,
+		"typeRoots": ["src/types", "node_modules/@types"]
+	},
 }
