@@ -1,3 +1,5 @@
+@import '../../style/base';
+
 .time-cell {
   &.last-cell {
     height: 12rem;
@@ -13,26 +15,44 @@
 
   .timeline-cell {
     height: 10rem;
-    width: 2rem;
+    min-width: 2rem;
 
     .down-triangle {
       width: 0;
       height: 0;
       border-left: 0.75rem solid transparent;
       border-right: 0.75rem solid transparent;
-      border-top: 2rem solid black;
+      border-top: 1.25rem solid $color-black;
       margin-left: auto;
       margin-right: auto;
     }
 
     .timeline-body {
+      background-color: $color-black;
       height: 100%;
-      width: 0.75rem;
+      width: 0.6rem;
       margin-left: auto;
       margin-right: auto;
       &.first-time {
         border-top-left-radius: 0.5rem;
         border-top-right-radius: 0.5rem;
+      }
+
+      .spot-outer-circle {
+        background-color: $color-black;
+        height: 1.2rem;
+        width: 1.2rem;
+        border-radius: 1rem;
+        display: flex;
+        position: relative;
+        right: 0.3rem;
+        .spot-inner-circle {
+          height: 0.6rem;
+          width: 0.6rem;
+          border-radius: 1rem;
+          background-color: $color-white;
+          margin: auto;
+        }
       }
     }
   }
