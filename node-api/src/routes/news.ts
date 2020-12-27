@@ -1,7 +1,9 @@
 import bodyParser from "body-parser";
 import express from "express";
 import {Logger} from "../logger/logger"
-import news from "../assets/news/showdown-demo.md"
+import fs from 'fs'
+import path from 'path'
+// import news from "../assets/news/showdown-demo.md"
 
 class News {
 
@@ -16,7 +18,8 @@ class News {
         this.middleware();
         this.routes();
         this.logger = new Logger();
-        this.news = [news];
+        const test = fs.readFileSync(path.join(__dirname, "../assets/news/showdown-demo.md"), 'utf-8')
+        this.news = [test];
     }
 
     // Configure Express middleware.
@@ -25,9 +28,8 @@ class News {
         this.express.use(bodyParser.urlencoded({ extended: false }));
     }
 
-    private routes(): void {
-
-        // request to get all the news
+    private routes(): void {        // request to get all the news
+        
         this.express.get("/news", (req, res, next) => {
           console.log(req.headers.language)
           this.logger.info("news");
