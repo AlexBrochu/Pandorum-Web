@@ -13,7 +13,7 @@ class App extends React.Component<{}, AppState> {
   render() {
     return (
       <Router>
-        <div className="text-center sm:text-left bg-teal-50">
+        <div className="app-container text-center sm:text-left">
           <NavBar></NavBar>
           <Switch>
             <Route path="/discussions">
@@ -29,6 +29,7 @@ class App extends React.Component<{}, AppState> {
               <HomePage />
             </Route>
           </Switch>
+          <div className="footer text-white">Footer TODO</div>
         </div>
       </Router>
     )

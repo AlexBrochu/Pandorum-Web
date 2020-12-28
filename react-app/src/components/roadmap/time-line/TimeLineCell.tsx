@@ -7,8 +7,7 @@ import { BsGear } from 'react-icons/bs'
 type TimeLineCellProps = {
   isFirst: boolean
   isLast: boolean
-  contentRight: TimeLineContent
-  contentLeft: TimeLineContent
+  content: TimeLineContent
 }
 
 const TimeLineCell: FunctionComponent<TimeLineCellProps> = (
@@ -16,31 +15,22 @@ const TimeLineCell: FunctionComponent<TimeLineCellProps> = (
 ): any => {
   return (
     <div
-      className={`${props.isFirst ? 'first-cell' : ''} time-cell flex flex-row`}
+      className={`${props.isLast ? 'last-cell' : ''} time-cell flex flex-row`}
     >
-      <div className="content-left">
-        {props.contentLeft && (
-          <TimeDetailContainer
-            timeContent={props.contentLeft}
-            icon={<BsGear />}
-          ></TimeDetailContainer>
-        )}
-      </div>
       <div className="timeline-cell">
-        {props.isFirst && <div className="top-triangle"></div>}
-
-        <div
-          className={`${
-            props.isLast ? 'last-time' : ''
-          } timeline-body bg-black`}
-        ></div>
+        <div className={`${props.isFirst ? 'first-time' : ''} timeline-body`}>
+          <div className="spot-outer-circle">
+            <div className="spot-inner-circle"></div>
+          </div>
+        </div>
+        {props.isLast && <div className="down-triangle"></div>}
       </div>
 
       <div className="content-right">
-        {props.contentRight && (
+        {props.content && (
           <TimeDetailContainer
             icon={<BsGear />}
-            timeContent={props.contentRight}
+            timeContent={props.content}
           ></TimeDetailContainer>
         )}
       </div>

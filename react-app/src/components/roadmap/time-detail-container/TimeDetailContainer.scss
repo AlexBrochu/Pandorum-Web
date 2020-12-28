@@ -1,0 +1,40 @@
+.time-detail-container {
+  display: flex;
+  flex-direction: column;
+  @apply sm:flex-row;
+  .content-title {
+    p {
+      text-align: left;
+      font-size: 0.9rem;
+    }
+  }
+  .content-description {
+    @apply sm:ml-0;
+    p {
+      font-size: 1rem;
+      text-align: left;
+    }
+    h1 {
+      font-weight: bolder;
+    }
+  }
+}
+
+.content-left .time-detail-container {
+  display: flex;
+  @apply sm:flex-row-reverse;
+  margin-right: 0.5rem;
+
+  .content-title {
+    p {
+      text-align: right;
+    }
+  }
+}
+
+.content-right .time-detail-container {
+  margin-left: 0.5rem;
+  .content-description {
+    @apply sm:ml-2;
+  }
+}
