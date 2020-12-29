@@ -1,6 +1,6 @@
-node-api/node_modules/*
-node-api/logs/*
-node-api/dist/*
+server/node_modules/*
+server/logs/*
+server/dist/*
 
-react-app/node_modules/*
-react-app/dist/*
+client/node_modules/*
+client/dist/*
