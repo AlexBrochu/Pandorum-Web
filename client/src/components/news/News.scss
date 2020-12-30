@@ -1,0 +1,20 @@
+@import '../style/base';
+
+.news-page-container {
+  background-color: $color-white;
+  .news-body {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    @apply sm:px-6;
+    @apply lg:px-8;
+    .news {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      @apply sm:px-0;
+    }
+  }
+}

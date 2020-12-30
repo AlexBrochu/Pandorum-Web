@@ -15,7 +15,6 @@ const NewsPage: React.FunctionComponent<NewsPageProps> = (): any => {
   useEffect(() => {
     const filesNews = async () => {
       const response = await getAllNewsFile('fr')
-      alert(response.message)
     }
     filesNews()
   }, [i18n.language])
@@ -30,11 +29,8 @@ const NewsPage: React.FunctionComponent<NewsPageProps> = (): any => {
         </div>
       </header>
       <main>
-        <div className="mx-auto py-6 sm:px-6 lg:px-8">
-          <div className="px-4 py-6 sm:px-0">
-            <ReactMarkdown className="news" children={news1}></ReactMarkdown>
-            <div className="border-4 border-gray-200 rounded-lg h-64"></div>
-          </div>
+        <div className="news-body">
+          <ReactMarkdown className="news" children={news1}></ReactMarkdown>
         </div>
       </main>
     </div>
