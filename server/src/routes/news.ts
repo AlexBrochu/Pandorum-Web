@@ -3,6 +3,7 @@ import express from "express";
 import {Logger} from "../logger/logger"
 import fs from 'fs'
 import path from 'path'
+import winston from "winston/lib/winston/config";
 // import news from "../assets/news/showdown-demo.md"
 
 class News {
@@ -11,15 +12,16 @@ class News {
     public logger: Logger
 
     // array to hold news
-    public news: any[];
+    public newsFr: string[] = [];
+    public newsEn: string[] = [];
 
     constructor() {
         this.express = express();
         this.middleware();
         this.routes();
         this.logger = new Logger();
-        const test = fs.readFileSync(path.join(__dirname, "../assets/news/showdown-demo.md"), 'utf-8')
-        this.news = [test];
+        this.loadFileLanguage('fr')
+        this.loadFileLanguage('en')
     }
 
     // Configure Express middleware.
@@ -28,15 +30,34 @@ class News {
         this.express.use(bodyParser.urlencoded({ extended: false }));
     }
 
+    private loadFileLanguage(language: string): void{
+        const files = fs.readdirSync(path.join(__dirname, "../assets/news/", language, '/'))
+        files.forEach(file => {
+            if(file.endsWith('.md')){
+                const content = fs.readFileSync(path.join(__dirname, "../assets/news/", language.toLocaleLowerCase(), '/', file), 'utf-8')
+                if(language === 'fr')
+                    this.newsFr.push(content)
+                else
+                    this.newsEn.push(content)
+            }
+        });
+    }
+
     private routes(): void {        // request to get all the news
         
         this.express.get("/news", (req, res, next) => {
-          console.log(req.headers.language)
-          this.logger.info("news");
-            res.json({
-              "info": req.headers.language,
-              "message": this.news, 
-            });
+            let newsLoaded: string[] = []
+            if(req.headers.language === 'fr')
+                newsLoaded = this.newsFr
+            else 
+                newsLoaded = this.newsEn
+
+            this.logger.info("Number of news returned: " + newsLoaded.length)
+            this.logger.info("Language returned: " + req.headers.language);
+                res.json({
+                "info": req.headers.language,
+                "news": newsLoaded, 
+                });
         });
     }
 }
