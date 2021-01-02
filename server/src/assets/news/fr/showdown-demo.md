@@ -160,6 +160,7 @@ You can also use [**setext style**][setext] headings, although only two levels a
 In live preview editors, when a paragraph is followed by a list it can cause an awkward effect.
 
 ![awkward effect][]
+![news image][]
 
 You can prevent this by enabling the option **`smoothPreview`**.
 
@@ -746,3 +747,4 @@ This new ruleset is based on the comments of Markdown's author John Gruber in th
 [readme]: https://github.com/showdownjs/showdown/blob/master/README.md
 [awkward effect]: http://i.imgur.com/YQ9iHTL.gif
 [emoji list]: https://github.com/showdownjs/showdown/wiki/emojis
+[news image]: http://localhost:3080/static/images/wall-e.jpg

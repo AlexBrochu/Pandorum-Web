@@ -9,3 +9,10 @@ You can download the latest release tarball directly from [releases][releases]
 ## Bower
 
     bower install showdown
+
+## Image test
+
+![news image][]
+
+This new ruleset is based on the comments of Markdown's author John Gruber in the [Markdown discussion list]
+[news image]: http://localhost:3080/static/images/wall-e.jpg
