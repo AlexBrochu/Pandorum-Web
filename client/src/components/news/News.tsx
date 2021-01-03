@@ -27,7 +27,8 @@ const NewsPage: React.FunctionComponent<NewsPageProps> = (): any => {
     event.stopPropagation()
     event.preventDefault()
     const key = (event.target as HTMLDivElement).getAttribute('data-key')
-    setSelectedFile(filesNews[+key])
+    console.log()
+    setSelectedFile(filesNews[+key-1])
   }
 
   return (
@@ -41,7 +42,7 @@ const NewsPage: React.FunctionComponent<NewsPageProps> = (): any => {
       </header>
       <main>
         <div>{filesNews.map((file, index) => {
-          return (<div data-key={index} onClick={() => handleClickNews}>News {index}</div>)
+          return (<div key={index+1} data-key={index+1} onClick={handleClickNews}>News {index+1}</div>)
         })}</div>
         <div className="news-body">
           <ReactMarkdown
