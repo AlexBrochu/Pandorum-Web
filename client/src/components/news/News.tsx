@@ -9,14 +9,27 @@ type NewsPageProps = {}
 const NewsPage: React.FunctionComponent<NewsPageProps> = (): any => {
   const { t, i18n } = useTranslation('news')
   const [filesNews, setFilesNews] = useState([])
+  const [selectedFile, setSelectedFile] = useState()
 
   useEffect(() => {
     const filesNews = async () => {
       const response = await getAllNewsFile(i18n.language)
       setFilesNews(response.news)
+      if(response.news.length > 0)
+        setSelectedFile(response.news[0])
     }
     filesNews()
   }, [i18n.language])
+
+  function handleClickNews(
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) {
+    event.stopPropagation()
+    event.preventDefault()
+    const key = (event.target as HTMLDivElement).getAttribute('data-key')
+    console.log()
+    setSelectedFile(filesNews[+key-1])
+  }
 
   return (
     <div className="news-page-container">
@@ -28,10 +41,13 @@ const NewsPage: React.FunctionComponent<NewsPageProps> = (): any => {
         </div>
       </header>
       <main>
+        <div>{filesNews.map((file, index) => {
+          return (<div key={index+1} data-key={index+1} onClick={handleClickNews}>News {index+1}</div>)
+        })}</div>
         <div className="news-body">
           <ReactMarkdown
             className="news"
-            children={filesNews[0]}
+            children={selectedFile}
           ></ReactMarkdown>
         </div>
       </main>
