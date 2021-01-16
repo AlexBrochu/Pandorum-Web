@@ -58,8 +58,8 @@ const NavbarDesktop: React.FunctionComponent<NavbarDesktopProps> = (
               </Link>
 
               <Link
-                to="/discussions"
-                className={location.pathname == '/discussions' ? 'active' : ''}
+                to="/qa"
+                className={location.pathname == '/qa' ? 'active' : ''}
               >
                 {t('discussions')}
               </Link>

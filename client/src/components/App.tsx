@@ -4,7 +4,7 @@ import NavBar from './common/navbar/Navbar'
 import HomePage from './home/Home'
 import NewsPage from './news/News'
 import RoadmapPage from './roadmap/Roadmap'
-import DiscussionsPage from './discussions/Discussions'
+import QuestionsAnswersPage from './questions_answers/QuestionsAnswers'
 import './App.scss'
 
 type AppState = {}
@@ -16,8 +16,8 @@ class App extends React.Component<{}, AppState> {
         <div className="app-container text-center sm:text-left">
           <NavBar></NavBar>
           <Switch>
-            <Route path="/discussions">
-              <DiscussionsPage />
+            <Route path="/qa">
+              <QuestionsAnswersPage />
             </Route>
             <Route path="/news">
               <NewsPage />

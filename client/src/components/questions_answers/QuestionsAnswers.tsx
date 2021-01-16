@@ -1,15 +1,15 @@
-import './Discussions.scss'
+import './QuestionsAnswers.scss'
 import React from 'react'
 
-type DiscussionsPageProps = {}
+type QuestionsAnswersProps = {}
 
-const DiscussionsPage: React.FunctionComponent<DiscussionsPageProps> = (): any => {
+const QuestionsAnswersPage: React.FunctionComponent<QuestionsAnswersProps> = (): any => {
   return (
     <div className="page-container">
       <header className="bg-white shadow">
         <div className="mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold leading-tight text-gray-900">
-            Discussions page
+            Questions & Answers page
           </h1>
         </div>
       </header>
@@ -24,4 +24,4 @@ const DiscussionsPage: React.FunctionComponent<DiscussionsPageProps> = (): any =
   )
 }
 
-export default DiscussionsPage
+export default QuestionsAnswersPage
