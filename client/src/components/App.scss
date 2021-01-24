@@ -8,6 +8,10 @@ body {
     @apply md:pl-20;
     @apply md:pr-20;
     background-color: $color-boulder;
+
+    main {
+      height: 100vh;
+    }
   }
 
   .page-container {
