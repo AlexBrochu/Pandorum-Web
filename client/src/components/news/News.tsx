@@ -23,18 +23,8 @@ const NewsPage: React.FunctionComponent<NewsPageProps> = (): any => {
     filesNews()
   }, [i18n.language])
 
-  // function handleClickNews(
-  //   event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  // ) {
-  //   event.stopPropagation()
-  //   event.preventDefault()
-  //   const key = (event.target as HTMLDivElement).getAttribute('data-key')
-  //   setSelectedFile(filesNews[+key - 1])
-  // }
-
   function handlePageClick(selectedPage: { selected: number }) {
     setCurrentPage(selectedPage.selected)
-    console.log(selectedPage)
     setSelectedFile(filesNews[+selectedPage.selected])
   }
   const pageCount = filesNews.length
@@ -51,8 +41,8 @@ const NewsPage: React.FunctionComponent<NewsPageProps> = (): any => {
       <main>
         <div>
           <ReactPaginate
-            previousLabel={'← Previous'}
-            nextLabel={'Next →'}
+            previousLabel={'← ' + t('pagination.previous')}
+            nextLabel={t('pagination.next') + ' →'}
             pageCount={pageCount}
             onPageChange={handlePageClick}
             containerClassName={'pagination'}

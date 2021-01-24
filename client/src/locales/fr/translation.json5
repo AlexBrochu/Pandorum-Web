@@ -7,6 +7,10 @@
     news: 'Nouvelles',
     discussions: 'Forum',
   },
+  pagination: {
+    previous: 'Précédent',
+    next: 'Suivant',
+  },
   common: {
     title: 'Bonjour',
     test: {
@@ -52,6 +56,10 @@
   news: {
     mainPage: {
       title: 'Nouvelles',
+    },
+    pagination: {
+      previous: 'Précédent',
+      next: 'Suivant',
     },
   },
 }

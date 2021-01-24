@@ -53,5 +53,9 @@
     mainPage: {
       title: 'News',
     },
+    pagination: {
+      previous: 'Previous',
+      next: 'Next',
+    },
   },
 }
