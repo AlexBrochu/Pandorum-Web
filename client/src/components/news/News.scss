@@ -30,13 +30,14 @@
     .pagination-container {
       display: flex;
       align-items: center;
+      justify-content: center;
       height: 4rem;
 
       ul.pagination {
         display: flex;
         justify-content: space-between;
         list-style: none;
-        width: 100%;
+        width: 60%;
         cursor: pointer;
         li {
           display: inline;
