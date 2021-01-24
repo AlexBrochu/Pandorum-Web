@@ -39,22 +39,22 @@ const NewsPage: React.FunctionComponent<NewsPageProps> = (): any => {
         </div>
       </header>
       <main>
-        <div>
-          <ReactPaginate
-            previousLabel={'← ' + t('pagination.previous')}
-            nextLabel={t('pagination.next') + ' →'}
-            pageCount={pageCount}
-            onPageChange={handlePageClick}
-            containerClassName={'pagination'}
-            previousLinkClassName={'pagination__link'}
-            nextLinkClassName={'pagination__link'}
-            disabledClassName={'pagination__link--disabled'}
-            activeClassName={'pagination__link--active'}
-            pageRangeDisplayed={5}
-            marginPagesDisplayed={5}
-          />
-        </div>
         <div className="news-body">
+          <div className="pagination-container">
+            <ReactPaginate
+              previousLabel={'← ' + t('pagination.previous')}
+              nextLabel={t('pagination.next') + ' →'}
+              pageCount={pageCount}
+              onPageChange={handlePageClick}
+              containerClassName={'pagination'}
+              previousLinkClassName={'pagination__link'}
+              nextLinkClassName={'pagination__link'}
+              disabledClassName={'pagination__link--disabled'}
+              activeClassName={'pagination__link--active'}
+              pageRangeDisplayed={5}
+              marginPagesDisplayed={5}
+            />
+          </div>
           <ReactMarkdown
             className="news"
             children={selectedFile}

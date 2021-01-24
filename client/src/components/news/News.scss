@@ -3,39 +3,6 @@
 .news-page-container {
   background-color: $color-white;
 
-  ul.pagination {
-    padding-top: 3rem;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    cursor: pointer;
-    padding-left: 40px;
-    padding-right: 40px;
-    li {
-      display: inline;
-      a {
-        padding: 10px;
-        border-radius: 5px;
-        border: 1px solid #6c7ac9;
-        color: #6c7ac9;
-      }
-
-      .pagination__link {
-        font-weight: bold;
-      }
-
-      .pagination__link--active a {
-        color: #fff;
-        background: #6c7ac9;
-      }
-
-      .pagination__link--disabled a {
-        color: rgb(198, 197, 202);
-        border: 1px solid rgb(198, 197, 202);
-      }
-    }
-  }
-
   .news-body {
     margin-left: auto;
     margin-right: auto;
@@ -57,6 +24,62 @@
       h2 {
         color: green;
         font-size: 1.5rem;
+      }
+    }
+
+    .pagination-container {
+      display: flex;
+      align-items: center;
+      height: 4rem;
+
+      ul.pagination {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        width: 100%;
+        cursor: pointer;
+        li {
+          display: inline;
+          a {
+            outline: none;
+            background-color: black;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 1rem;
+            @apply text-white;
+            @apply px-3;
+            @apply py-2;
+            @apply text-sm;
+            @apply font-medium;
+
+            &:hover {
+              @apply bg-gray-700;
+              @apply text-white;
+            }
+            &.active {
+              @apply bg-gray-900;
+              font-weight: bolder;
+            }
+            &:focus {
+              text-decoration: none;
+            }
+          }
+
+          &.pagination__link {
+            font-weight: bold;
+          }
+
+          &.pagination__link--active a {
+            color: #fff;
+            background: #3f414b;
+            font-size: 1rem;
+          }
+
+          &.pagination__link--disabled a {
+            color: #c6c5ca;
+            border: 1px solid rgb(121, 121, 121);
+          }
+        }
       }
     }
   }
