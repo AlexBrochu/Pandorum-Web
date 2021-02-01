@@ -1,6 +1,6 @@
 import './QuestionsAnswers.scss'
 import React, { useState } from 'react'
-import { BsFillCaretLeftFill } from 'react-icons/bs'
+import QACard from './qa-card/QACard'
 
 type QuestionsAnswersProps = {}
 
@@ -28,21 +28,10 @@ const QuestionsAnswersPage: React.FunctionComponent<QuestionsAnswersProps> = ():
         <div className="mx-auto py-6 sm:px-6 lg:px-8">
           <div className="px-4 py-6 sm:px-0">
             <div>
-              <div className="qa-container">
-                <h2 onClick={handleClickAnimation}>
-                  When will the game be launched?
-                  <span
-                    className={`${
-                      isActive ? 'slidedown' : 'slideup'
-                    } mt-auto mb-auto pr-1`}
-                  >
-                    <BsFillCaretLeftFill />
-                  </span>
-                </h2>
-                <p className={`${isActive ? 'slidedown' : 'slideup'} `}>
-                  Eventually! Let me work my magic!
-                </p>
-              </div>
+              <QACard
+                title="When will the game be launched?"
+                text="Eventually! Let me work my magic!"
+              ></QACard>
             </div>
           </div>
         </div>

@@ -2,38 +2,4 @@
 
 .qa-page-container {
   background-color: $color-white;
-
-  .qa-container {
-    border-radius: 0.5rem;
-    border-color: $gray-white;
-    border-width: 4px;
-    padding: 0.25rem;
-    h2 {
-      display: flex;
-
-      span {
-        color: green;
-        transition: all 2s;
-        transition-timing: ease-in-out;
-        &.slidedown {
-          transform: rotate(-90deg);
-        }
-      }
-    }
-
-    p {
-      &.slideup,
-      &.slidedown {
-        max-height: 0;
-        overflow-y: hidden;
-        -webkit-transition: max-height 1s ease-in-out;
-        -moz-transition: max-height 1s ease-in-out;
-        -o-transition: max-height 1s ease-in-out;
-        transition: max-height 1s ease-in-out;
-      }
-      &.slidedown {
-        max-height: 15rem;
-      }
-    }
-  }
 }
