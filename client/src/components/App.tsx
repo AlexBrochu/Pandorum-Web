@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import NavBar from './common/navbar/Navbar'
-import Footer from './common/footer/Footer'
+import CustomFooter from './common/footer/CustomFooter'
 import HomePage from './home/Home'
 import NewsPage from './news/News'
 import RoadmapPage from './roadmap/Roadmap'
@@ -30,7 +30,7 @@ class App extends React.Component<{}, AppState> {
               <HomePage />
             </Route>
           </Switch>
-          <Footer></Footer>
+          <CustomFooter />
         </div>
       </Router>
     )

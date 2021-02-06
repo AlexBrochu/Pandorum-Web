@@ -1,11 +1,11 @@
-import './Footer.scss'
-import React from 'React'
+import './CustomFooter.scss'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-type FooterProps = {}
+type CustomFooterProps = {}
 
-const Footer: React.FunctionComponent<FooterProps> = (
-  props: FooterProps
+const CustomFooter: React.FC<CustomFooterProps> = (
+  props: CustomFooterProps
 ): any => {
   const { t } = useTranslation('footer')
 
@@ -19,4 +19,4 @@ const Footer: React.FunctionComponent<FooterProps> = (
   )
 }
 
-export default Footer
+export default CustomFooter
