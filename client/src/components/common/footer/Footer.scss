@@ -1,0 +1,12 @@
+@import '../../style/base';
+
+.footer {
+  background-color: $nav-footer-background;
+  color: $color-white;
+  font-size: 1rem;
+  padding: 0.5rem;
+
+  div {
+    text-align: center;
+  }
+}

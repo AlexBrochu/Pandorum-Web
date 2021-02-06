@@ -73,4 +73,8 @@
       text: 'Bien sur!',
     },
   },
+  footer: {
+    allright: 'Tous droits réservés.',
+    poweredby: 'AL Incorpored',
+  },
 }

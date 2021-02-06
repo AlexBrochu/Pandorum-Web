@@ -69,4 +69,8 @@
       text: 'Ofcourse!',
     },
   },
+  footer: {
+    allright: 'All Rights Reserved.',
+    poweredby: 'AL Incorpored',
+  },
 }
