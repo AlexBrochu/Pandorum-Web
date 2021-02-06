@@ -5,7 +5,7 @@
     home: 'Home',
     roadmap: 'Roadmap',
     news: 'News',
-    discussions: 'Discussions',
+    discussions: 'Q&A',
   },
   common: {
     title: 'Hello',
@@ -56,6 +56,17 @@
     pagination: {
       previous: 'Previous',
       next: 'Next',
+    },
+  },
+  qa: {
+    title: 'Questions & Answers page',
+    card1: {
+      title: 'When will the game be launched?',
+      text: 'Eventually! Let me work my magic!',
+    },
+    card2: {
+      title: 'Can I get a refund?',
+      text: 'Ofcourse!',
     },
   },
 }

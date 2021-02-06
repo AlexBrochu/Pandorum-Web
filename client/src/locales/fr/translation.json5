@@ -5,7 +5,7 @@
     home: 'Accueil',
     roadmap: 'Objectifs',
     news: 'Nouvelles',
-    discussions: 'Forum',
+    discussions: 'FAQ',
   },
   pagination: {
     previous: 'Précédent',
@@ -60,6 +60,17 @@
     pagination: {
       previous: 'Précédent',
       next: 'Suivant',
+    },
+  },
+  qa: {
+    title: 'Foires aux questions',
+    card1: {
+      title: 'Quand le jeu va-t-il sortir?',
+      text: 'Éventuellement! Laisse moi travailler.',
+    },
+    card2: {
+      title: 'Est-ce que je peux me faire rembourser?',
+      text: 'Bien sur!',
     },
   },
 }
