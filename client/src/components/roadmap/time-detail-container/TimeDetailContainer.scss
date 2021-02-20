@@ -1,4 +1,8 @@
 .time-detail-container {
+  h1 {
+    font-size: 1rem;
+  }
+
   display: flex;
   flex-direction: column;
   @apply sm:flex-row;

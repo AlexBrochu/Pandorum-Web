@@ -41,6 +41,7 @@ const NewsPage: React.FunctionComponent<NewsPageProps> = (): any => {
       <main>
         <div className="news-body">
           <div className="pagination-container">
+            {/* https://github.com/AdeleD/react-paginate */}
             <ReactPaginate
               previousLabel={'← ' + t('pagination.previous')}
               nextLabel={t('pagination.next') + ' →'}
@@ -51,8 +52,9 @@ const NewsPage: React.FunctionComponent<NewsPageProps> = (): any => {
               nextLinkClassName={'pagination__link'}
               disabledClassName={'pagination__link--disabled'}
               activeClassName={'pagination__link--active'}
-              pageRangeDisplayed={5}
-              marginPagesDisplayed={5}
+              pageRangeDisplayed={1}
+              marginPagesDisplayed={1}
+              breakLabel="..."
             />
           </div>
           <ReactMarkdown

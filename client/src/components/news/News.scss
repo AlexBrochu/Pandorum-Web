@@ -30,13 +30,18 @@
       align-items: center;
       justify-content: center;
       height: 4rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
 
       ul.pagination {
         display: flex;
         justify-content: space-between;
         list-style: none;
-        width: 60%;
+        width: 100%;
         cursor: pointer;
+        @apply md:w-2/3;
         li {
           display: inline;
           a {
