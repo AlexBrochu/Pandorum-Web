@@ -48,7 +48,6 @@ module.exports = {
     // Generates deprecation warning: https://github.com/jantimon/html-webpack-plugin/issues/1501
     new HtmlWebpackPlugin({
       title: 'webpack Boilerplate',
-      favicon: paths.src + '/assets/favicon.png',
       template: paths.src + '/index.html', // index file
       filename: 'index.html', // output file
     }),
