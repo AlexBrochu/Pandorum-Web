@@ -47,7 +47,7 @@ const NavbarMobileMenu: React.FunctionComponent<NavbarMobileMenuProps> = (
         </Link>
 
         <Link
-          to="/discussions"
+          to="/qa"
           className={location.pathname == '/discussions' ? 'active' : ''}
           onClick={() => props.handleToggle()}
         >
