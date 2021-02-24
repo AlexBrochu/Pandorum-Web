@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLocation, Link } from 'react-router-dom'
 
@@ -15,13 +15,7 @@ const NavbarMobileMenu: React.FunctionComponent<NavbarMobileMenuProps> = (
 
   return (
     <div className={`${props.show ? '' : 'hidden'} navbar-mobile md:hidden`}>
-      {/* <!--
-      Mobile menu, toggle classes based on menu state.
-
-      Open: "block", closed: "hidden"
-    --> */}
       <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
         <Link
           to="/"
           className={location.pathname == '/' ? 'active' : ''}
