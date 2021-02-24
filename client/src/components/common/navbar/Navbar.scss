@@ -1,3 +1,5 @@
+@import '../../style/base';
+
 .navbar {
   .brand-nav {
     img {
@@ -18,7 +20,7 @@
     }
 
     a {
-      color: black;
+      color: $color-black;
       &:hover {
         @apply bg-gray-100;
         @apply text-black;
@@ -29,7 +31,7 @@
   .links {
     a {
       border-radius: 1rem;
-      @apply text-gray-300;
+      color: $color-white;
       @apply px-3;
       @apply py-2;
       @apply text-sm;
