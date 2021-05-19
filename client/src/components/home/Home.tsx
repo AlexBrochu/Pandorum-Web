@@ -3,6 +3,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { SlideShowProps } from '../common/slideshow-card/SlideshowCard'
 import CardContainer from '../common/card-container/CardContainer'
+import Heading from '../common/heading/heading'
 
 type HomePageProps = {}
 
@@ -28,13 +29,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = (): any => {
 
   return (
     <div className="page-container">
-      <header className="shadow">
-        <div className="mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold leading-tight text-gray-900">
-            {t('mainPage.title')}
-          </h1>
-        </div>
-      </header>
+      <Heading title={t('mainPage.title')} />
       <main>
         <div className="mx-auto py-6 sm:px-6 lg:px-8">
           <div className="px-4 py-6 sm:px-0">

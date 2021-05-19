@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
-    "start:prod": "cross-env NODE_ENV=production webpack serve --config config/webpack.prod.js",
-    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js"
+    "start:build": "cross-env NODE_ENV=production webpack serve --config config/webpack.prod.js",
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
+    "start:prod": "npm run build && npm run start:build"
   },
   "proxy": "http://localhost:3080",
   "keywords": [],

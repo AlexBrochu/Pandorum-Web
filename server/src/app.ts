@@ -1,4 +1,3 @@
-import bodyParser from "body-parser";
 import express from "express";
 import Routes from "./routes/routes";
 const path = require('path');
@@ -19,8 +18,8 @@ class App {
 
     // Configure Express middleware.
     private middleware(): void {
-        this.express.use(bodyParser.json());
-        this.express.use(bodyParser.urlencoded({ extended: false }));
+        this.express.use(express.json());
+        this.express.use(express.urlencoded({ extended: true }));
         this.express.use(express.static(process.cwd() + "/../client/dist/"));
         this.express.use("/static", express.static(process.cwd() +'/src/assets'))
     }

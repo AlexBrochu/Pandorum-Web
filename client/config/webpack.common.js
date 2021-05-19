@@ -47,7 +47,7 @@ module.exports = {
     // Generates an HTML file from a template
     // Generates deprecation warning: https://github.com/jantimon/html-webpack-plugin/issues/1501
     new HtmlWebpackPlugin({
-      title: 'webpack Boilerplate',
+      title: 'Hidden Games Studio',
       template: paths.src + '/index.html', // index file
       filename: 'index.html', // output file
     }),
@@ -83,7 +83,6 @@ module.exports = {
     ],
   },
   devServer: {
-    host: '0.0.0.0',
     contentBase: paths.build,
     port: 8080,
     proxy: {
