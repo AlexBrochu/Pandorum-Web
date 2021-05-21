@@ -28,3 +28,15 @@ cd client
  docker build -t getting-started .
   docker run -dp 8080:8080 getting-started
 ```
+
+## Build
+
+```
+$ docker-compose build
+```
+
+## Launch
+
+```
+$ docker-compose up
+```
