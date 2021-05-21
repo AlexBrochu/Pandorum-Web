@@ -1,32 +1,16 @@
-FROM node:alpine
+FROM node:13.12.0-alpine as build
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm ci --silent
+RUN npm install react-scripts@3.4.1 -g --silent
+COPY . ./
+RUN npm run build
 
-WORKDIR /usr/src/app
-
-COPY package.json .
-COPY package-lock.json .
-
-# Install python
-RUN apk add --update \
-  python \
-  python-dev \
-  py-pip \
-  && rm -rf /var/cache/apk/*
-
-RUN apk add --update build-base
-# RUN apk add --update alpine-sdk && \
-#   apk add libffi-dev openssl-dev && \
-#   apk --no-cache --update add build-base
-# RUN chmod -R a+rw /usr/local/lib/node_modules
-# Globally node-sass from NPM
-# RUN npm install --unsafe-perm -g node-sass
-# RUN npm link node-sass
-# RUN npm install -g sass
-
-# RUN npm install
-RUN npm ci --only=production
-
-COPY . . 
-
-CMD  [ "npm", "run", "start:prod" ]
-
-EXPOSE 8080
+# production environment
+FROM nginx:stable-alpine
+COPY --from=build /app/dist /usr/share/nginx/html
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

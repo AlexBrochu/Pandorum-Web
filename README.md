@@ -20,3 +20,11 @@ npm install node-api
 ### Run apis in dev mode with hot reload
 
 npm run start:dev
+
+### Docker command
+
+```
+cd client
+ docker build -t getting-started .
+  docker run -dp 8080:8080 getting-started
+```
