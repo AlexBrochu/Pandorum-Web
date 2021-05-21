@@ -29,10 +29,15 @@ class News {
     }
 
     private loadFileLanguage(language: string): void{
-        const files = fs.readdirSync(path.join(__dirname, "../assets/news/", language, '/'))
+        var assetPath = "assets/news/"
+        if (process.env.NODE_ENV !== "production"){
+            assetPath = "../" + assetPath
+        }
+        
+        const files = fs.readdirSync(path.join(__dirname, assetPath, language, '/'))
         files.forEach(file => {
             if(file.endsWith('.md')){
-                const content = fs.readFileSync(path.join(__dirname, "../assets/news/", language.toLocaleLowerCase(), '/', file), 'utf-8')
+                const content = fs.readFileSync(path.join(__dirname, assetPath, language.toLocaleLowerCase(), '/', file), 'utf-8')
                 if(language === 'fr')
                     this.newsFr.push(content)
                 else

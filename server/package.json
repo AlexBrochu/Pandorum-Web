@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "start:dev": "nodemon",
-    "main": "ts-node dist/main.bundle.js",
+    "main": "node dist/main.bundle.js",
     "dev": "cross-env NODE_ENV=development webpack --config config/webpack.dev.js && npm run main",
     "start:prod": "npm run build && npm run start:dev",
     "test": "echo \"Error: no test specified\" && exit 1",

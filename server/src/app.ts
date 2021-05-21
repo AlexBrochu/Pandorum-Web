@@ -1,6 +1,5 @@
 import express from "express";
 import Routes from "./routes/routes";
-const path = require('path');
 
 class App {
 
@@ -20,16 +19,10 @@ class App {
     private middleware(): void {
         this.express.use(express.json());
         this.express.use(express.urlencoded({ extended: true }));
-        this.express.use(express.static(process.cwd() + "/../client/dist/"));
-        this.express.use("/static", express.static(process.cwd() +'/src/assets'))
+        this.express.use("/static", express.static(__dirname + '/assets'))
     }
 
     private routes(): void {
-
-        this.express.get("/", (req, res, next) => {
-            res.sendFile(process.cwd() + "/../client/dist/index.html");
-        });
-
         // user route
         this.express.use("/api", Routes);
 

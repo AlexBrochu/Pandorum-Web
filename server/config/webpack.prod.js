@@ -8,7 +8,7 @@ module.exports = merge(common, {
   output: {
     path: paths.build,
     publicPath: '/',
-    filename: 'api.bundle.js',
+    filename: '[name].bundle.js',
   },
   performance: {
     hints: false,
@@ -19,8 +19,6 @@ module.exports = merge(common, {
     historyApiFallback: true,
     contentBase: paths.build,
     open: true,
-    compress: true,
-    hot: true,
     port: 3080,
   },
 })
