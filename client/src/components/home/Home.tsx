@@ -34,14 +34,18 @@ const HomePage: React.FunctionComponent<HomePageProps> = (): any => {
         <div className="mx-auto py-6 sm:px-6 lg:px-8">
           <div className="px-4 py-6 sm:px-0">
             <div className="border-4 border-gray-200 rounded-lg">
-              {[1, 2].map((value) => (
-                <CardContainer
-                  key={value}
-                  reverse={!!(value % 2)}
-                  pathToMediaSource="test"
-                  slideshowProps={test}
-                ></CardContainer>
-              ))}
+              <CardContainer
+                key={1}
+                reverse={true}
+                pathToMediaSource="assets/slide.gif"
+                slideshowProps={test}
+              />
+              <CardContainer
+                key={2}
+                reverse={false}
+                pathToMediaSource="assets/slide2.gif"
+                slideshowProps={test}
+              />
             </div>
           </div>
         </div>

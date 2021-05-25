@@ -11,8 +11,7 @@ const MediaContainer: React.FunctionComponent<MediaContainerProps> = (
 ): any => {
   return (
     <div className="media-container">
-      MEDIA CONTENT
-      {props.pathToRessource != '' && <img src="assets/mario-mushroom.png" />}
+      {props.pathToRessource != '' && <img src={props.pathToRessource} />}
     </div>
   )
 }

@@ -30,7 +30,7 @@ class App {
         this.express.use("/api", Routes);
         const a = undefined;
         const b = a ?? 'test';
-        this.logger.info(b)
+        this.logger.info(`ES11 - ${b}`)
         // handle undefined routes
         this.express.use("*", (req, res, next) => {
             res.send("Make sure url is correct!!!");
