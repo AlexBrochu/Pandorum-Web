@@ -22,8 +22,8 @@ const QACard: React.FunctionComponent<QACardProps> = (
 
   return (
     <div className="qa-container">
-      <h2 onClick={handleClickAnimation}>
-        {props.title}
+      <div onClick={handleClickAnimation}>
+        <h2>{props.title}</h2>
         <span
           className={`${
             isActive ? 'slidedown' : 'slideup'
@@ -31,7 +31,8 @@ const QACard: React.FunctionComponent<QACardProps> = (
         >
           <BsFillCaretLeftFill />
         </span>
-      </h2>
+      </div>
+
       <p className={`${isActive ? 'slidedown' : 'slideup'} `}>{props.text}</p>
     </div>
   )

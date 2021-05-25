@@ -6,13 +6,17 @@
   border-width: 4px;
   padding: 0.25rem;
   margin-bottom: 0.5rem;
-  h2 {
+
+  div {
     display: flex;
+    justify-content: space-between;
 
     span {
+      display: block;
       color: green;
       transition: all 2s;
-      transition-timing: ease-in-out;
+      transition-timing-function: ease-in-out;
+
       &.slidedown {
         transform: rotate(-90deg);
       }
