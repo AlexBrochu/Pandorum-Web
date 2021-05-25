@@ -8,6 +8,6 @@
 		"allowJs": true,
 		"moduleResolution": "node",
 		"plugins": [{"name": "typescript-tslint-plugin"}], 
-		"esModuleInterop": true
+		"esModuleInterop": true,
 	}
 }

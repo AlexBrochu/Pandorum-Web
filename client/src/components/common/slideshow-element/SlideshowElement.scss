@@ -1,6 +1,8 @@
 @import '../../style/base';
 
 .subsection {
+  cursor: pointer;
+
   .card-content {
     .content {
       margin: 0.75rem;

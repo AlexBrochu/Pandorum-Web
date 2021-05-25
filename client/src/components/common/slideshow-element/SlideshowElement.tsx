@@ -24,7 +24,7 @@ const SlideShowElement: React.FunctionComponent<SlideShowElementProps> = (
     <div
       key={props.index}
       data-key={props.index}
-      className="subsection "
+      className="subsection"
       onClick={props.handleClickAnimation}
     >
       <h2 data-key={props.index}>{t(props.slide.title)}</h2>

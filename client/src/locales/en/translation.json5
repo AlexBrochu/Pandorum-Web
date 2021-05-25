@@ -1,5 +1,5 @@
 {
-  langauge: 'english',
+  language: 'english',
   nav: {
     brand: 'Pandorum',
     home: 'Home',

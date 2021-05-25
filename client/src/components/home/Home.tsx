@@ -33,7 +33,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = (): any => {
       <main>
         <div className="mx-auto py-6 sm:px-6 lg:px-8">
           <div className="px-4 py-6 sm:px-0">
-            <div className="border-4 border-gray-200 rounded-lg">
+            <div>
               <CardContainer
                 key={1}
                 reverse={true}

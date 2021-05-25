@@ -3,7 +3,7 @@ import useWindowSize from '../../../hooks/useWindowSize'
 import ProfileDropdownDesktop from './ProfileDropdownDesktop'
 import { useTranslation } from 'react-i18next'
 import { useLocation, Link } from 'react-router-dom'
-import logo from '../../../../public/mario-mushroom.png'
+import logo from '../../../assets/Pandorum_feather_blood_bk.ico'
 
 type NavbarDesktopProps = {}
 
@@ -25,7 +25,7 @@ const NavbarDesktop: React.FunctionComponent<NavbarDesktopProps> = (
   }
 
   return (
-    <nav className={`bg-gray-800 ${width >= 640 ? '' : 'hidden'}`}>
+    <nav className={`${width >= 640 ? '' : 'hidden'}`}>
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
