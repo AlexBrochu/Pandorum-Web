@@ -14,8 +14,8 @@ body {
   }
 
   .app-container {
-    @apply md:pl-20;
-    @apply md:pr-20;
+    @apply lg:pl-20;
+    @apply lg:pr-20;
     background-color: $color-boulder;
 
     main {

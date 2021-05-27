@@ -1,7 +1,7 @@
 {
   language: 'français',
   nav: {
-    brand: 'Pandorum',
+    brand: 'Hidden Games Studios',
     home: 'Accueil',
     roadmap: 'Objectifs',
     news: 'Nouvelles',
@@ -19,17 +19,29 @@
   },
   home: {
     mainPage: {
-      title: 'Accueil',
+      title: 'Project RPG',
     },
-    cardDemo: {
-      title: 'Super Jeu',
+    cardDemo1: {
+      title: 'Un jeu Donjon et Dragons comme aucun autre',
       description1: {
-        title: "Let's go",
-        subtitle: 'Such awesome',
+        title: 'Maitre donjon ralié vos troupes',
+        subtitle: "Vous aurez le contrôle de l'envrionnement, de vos quêtes et des montres",
       },
       description2: {
-        title: 'Please Work',
-        subtitle: 'Much Wow',
+        title: 'Magicien, Elf, Barbare joignés vous à la cause.',
+        subtitle: 'Une expérience RPG immersive vous attend.',
+      },
+    },
+
+    cardDemo2: {
+      title: 'Jeu RPG Multiplaforme en ligne',
+      description1: {
+        title: 'Réalité Virtuelle',
+        subtitle: 'You got a nice PC and VR Headset. Enjoy the ultimate experience!',
+      },
+      description2: {
+        title: "Old PC, don't worry",
+        subtitle: 'Join your friend you can make it.',
       },
     },
   },

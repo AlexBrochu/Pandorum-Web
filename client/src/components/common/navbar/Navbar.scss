@@ -5,11 +5,11 @@
   .brand-nav {
     img {
       float: left;
-      margin-top: 6px;
     }
     span {
       font-weight: 500;
       font-size: 1.5rem;
+      @apply sm:text-base;
     }
   }
   .profile-menu-hover {

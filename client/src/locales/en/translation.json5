@@ -1,7 +1,7 @@
 {
   language: 'english',
   nav: {
-    brand: 'Pandorum',
+    brand: 'Hidden Games Studios',
     home: 'Home',
     roadmap: 'Roadmap',
     news: 'News',
@@ -15,17 +15,29 @@
   },
   home: {
     mainPage: {
-      title: 'Home',
+      title: 'Project RPG',
     },
-    cardDemo: {
-      title: 'Super Game',
+    cardDemo1: {
+      title: 'Dungeons And Dragons Like No Others',
       description1: {
-        title: "Let's go",
-        subtitle: 'Such awesome',
+        title: 'Dungeon Masters we need you',
+        subtitle: 'You have the control on the environment. Manage your quests and throw monsters in to spice up the games',
       },
       description2: {
-        title: 'Please Work',
-        subtitle: 'Much WowMuch WowMuch WowMuch WowMuch WowMuch WowMuch WowMuch WowMuch WowMuch WowMuch WowMuch Wow',
+        title: 'Players embark on an quests like never before',
+        subtitle: 'Join from your PC or VR Headset. The choice is yours',
+      },
+    },
+
+    cardDemo2: {
+      title: 'Online Crossplaform RPG Game',
+      description1: {
+        title: 'Virtual Reality',
+        subtitle: 'You got a nice PC and VR Headset. Enjoy the ultimate experience!',
+      },
+      description2: {
+        title: "Old PC, don't worry",
+        subtitle: 'Join your friend you can make it.',
       },
     },
   },

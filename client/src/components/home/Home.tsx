@@ -14,15 +14,31 @@ const HomePage: React.FunctionComponent<HomePageProps> = (): any => {
     classNames: 'test',
     namespace: 'home',
     timeLeft: 10,
-    title: 'cardDemo.title',
+    title: 'cardDemo1.title',
     subtitles: [
       {
-        title: 'cardDemo.description1.title',
-        description: 'cardDemo.description1.subtitle',
+        title: 'cardDemo1.description1.title',
+        description: 'cardDemo1.description1.subtitle',
       },
       {
-        title: 'cardDemo.description2.title',
-        description: 'cardDemo.description2.subtitle',
+        title: 'cardDemo1.description2.title',
+        description: 'cardDemo1.description2.subtitle',
+      },
+    ],
+  }
+  const test2: SlideShowProps = {
+    classNames: 'test',
+    namespace: 'home',
+    timeLeft: 10,
+    title: 'cardDemo2.title',
+    subtitles: [
+      {
+        title: 'cardDemo2.description1.title',
+        description: 'cardDemo2.description1.subtitle',
+      },
+      {
+        title: 'cardDemo2.description2.title',
+        description: 'cardDemo2.description2.subtitle',
       },
     ],
   }
@@ -44,7 +60,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = (): any => {
                 key={2}
                 reverse={false}
                 pathToMediaSource="assets/slide2.gif"
-                slideshowProps={test}
+                slideshowProps={test2}
               />
             </div>
           </div>
