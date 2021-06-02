@@ -43,8 +43,8 @@ const NewsPage: React.FunctionComponent<NewsPageProps> = (): any => {
           <div className="pagination-container">
             {/* https://github.com/AdeleD/react-paginate */}
             <ReactPaginate
-              previousLabel={'← ' + t('pagination.previous')}
-              nextLabel={t('pagination.next') + ' →'}
+              previousLabel={'←'}
+              nextLabel={'→'}
               pageCount={pageCount}
               onPageChange={handlePageClick}
               containerClassName={'pagination'}
