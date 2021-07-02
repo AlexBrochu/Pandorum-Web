@@ -1,5 +1,4 @@
-import bodyParser from "body-parser";
-import express from "express";
+import express from "express"
 import {Logger} from "../logger/logger"
 
 class HelloWord {
@@ -11,28 +10,28 @@ class HelloWord {
     public users: any[];
 
     constructor() {
-        this.express = express();
-        this.middleware();
-        this.routes();
-        this.logger = new Logger();
+        this.express = express()
+        this.middleware()
+        this.routes()
+        this.logger = new Logger()
     }
 
     // Configure Express middleware.
     private middleware(): void {
-        this.express.use(bodyParser.json());
-        this.express.use(bodyParser.urlencoded({ extended: false }));
+        this.express.use(express.json())
+        this.express.use(express.urlencoded({ extended: false }))
     }
 
     private routes(): void {
 
         // request to get all the users
         this.express.get("/test", (req, res, next) => {
-          this.logger.info("TEST");
+          this.logger.info("TEST")
             res.json({
               "message": "Hello Word test"
-            });
-        });
+            })
+        })
     }
 }
 
-export default new HelloWord().express;
+export default new HelloWord().express

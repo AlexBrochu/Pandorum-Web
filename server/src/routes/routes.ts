@@ -3,6 +3,7 @@ import express from "express";
 import User from "./user";
 import HelloWord from "./hello-word";
 import News from "./news";
+import Authentication from "./authentication";
 
 class Routes {
 
@@ -29,6 +30,7 @@ class Routes {
         this.express.use("/", User);
         this.express.use("/", HelloWord);
         this.express.use("/", News);
+        this.express.use("/", Authentication)
     }
 }
 
