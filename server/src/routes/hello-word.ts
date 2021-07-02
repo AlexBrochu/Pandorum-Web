@@ -1,5 +1,5 @@
-import express from "express"
-import {Logger} from "../logger/logger"
+import express from 'express'
+import {Logger} from '../logger/logger'
 
 class HelloWord {
 
@@ -25,10 +25,10 @@ class HelloWord {
     private routes(): void {
 
         // request to get all the users
-        this.express.get("/test", (req, res, next) => {
-          this.logger.info("TEST")
+        this.express.get('/test', (req, res, next) => {
+          this.logger.info('TEST')
             res.json({
-              "message": "Hello Word test"
+              'message': 'Hello Word test'
             })
         })
     }

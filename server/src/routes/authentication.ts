@@ -1,10 +1,10 @@
-import express from "express"
-import {Logger} from "../logger/logger"
-import expressSession from "express-session"
-import passport from "passport"
-import Auth0Strategy from "passport-auth0"
-import querystring from "querystring"
-import * as dotenv from "dotenv"
+import express from 'express'
+import {Logger} from '../logger/logger'
+import expressSession from 'express-session'
+import passport from 'passport'
+import Auth0Strategy from 'passport-auth0'
+import querystring from 'querystring'
+import * as dotenv from 'dotenv'
 dotenv.config()
 
 class Authenticator {
@@ -41,13 +41,14 @@ class Authenticator {
     
 
   constructor() {
-      this.express = express()
-      this.middleware()
-      this.routes()
-      this.logger = new Logger()
-      if (process.env.NODE_ENV !== "production") {
-        this.session.cookie.secure = true
+    this.express = express()
+    this.middleware()
+    this.routes()
+    this.logger = new Logger()
+    if (process.env.NODE_ENV !== 'production') {
+      this.session.cookie.secure = true
     }
+    this.logger.info(JSON.stringify(this.strategy))
   }
 
   // Configure Express middleware.
@@ -74,22 +75,22 @@ class Authenticator {
   private routes(): void {
 
     // login client
-    this.express.get("/login", 
-    passport.authenticate("auth0", {
-      scope: "openid email profile"
+    this.express.get('/login', 
+    passport.authenticate('auth0', {
+      scope: 'openid email profile'
     }), 
     (req, res, next) => {
-      this.logger.info("TEST")
-      res.redirect("/")
+      this.logger.info('TEST')
+      // res.redirect('/')
     })
 
-    this.express.get("/callback", (req:any, res, next) => {
-      passport.authenticate("auth0", (err, user, info) => {
+    this.express.get('/callback', (req:any, res, next) => {
+      passport.authenticate('auth0', (err, user, info) => {
         if (err) {
           return next(err)
         }
         if (!user) {
-          return res.redirect("/login")
+          return res.redirect('/login')
         }
         req.logIn(user, (err) => {
           if (err) {
@@ -97,21 +98,21 @@ class Authenticator {
           }
           const returnTo = req.session.returnTo
           delete req.session.returnTo
-          res.redirect(returnTo || "/")
+          res.redirect(returnTo || '/')
         })(req, res, next)
       })
     })
 
 
-    this.express.get("/logout", (req, res)=>{
+    this.express.get('/logout', (req, res)=>{
       req.logOut()
       
-      let returnTo = req.protocol + "://" + req.hostname
+      let returnTo = req.protocol + '://' + req.hostname
       const port = req.connection.localPort
 
       if (port !== undefined && port !== 80 && port !== 443) {
         returnTo =
-          process.env.NODE_ENV === "production"
+          process.env.NODE_ENV === 'production'
             ? `${returnTo}/`
             : `${returnTo}:${port}/`
       }

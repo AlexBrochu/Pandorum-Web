@@ -3,7 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import ReactMarkdown from 'react-markdown'
 import ReactPaginate from 'react-paginate'
-import { getAllNewsFile } from '../../services/news/NewsService'
+import {
+  getAllNewsFile,
+  getAllNewsFileProtected,
+} from '../../services/news/NewsService'
+import { useAuth0 } from '@auth0/auth0-react'
 
 type NewsPageProps = {}
 const PER_PAGE = 10
@@ -13,14 +17,29 @@ const NewsPage: React.FunctionComponent<NewsPageProps> = (): any => {
   const [filesNews, setFilesNews] = useState([])
   const [currentPage, setCurrentPage] = useState(0)
   const [selectedFile, setSelectedFile] = useState()
+  const { getAccessTokenSilently } = useAuth0()
 
-  useEffect(() => {
-    const filesNews = async () => {
-      const response = await getAllNewsFile(i18n.language)
+  const callSecureApiSecure = async () => {
+    try {
+      const token = await getAccessTokenSilently()
+
+      const response = await getAllNewsFileProtected(i18n.language, token)
+
       setFilesNews(response.news)
       if (response.news.length > 0) setSelectedFile(response.news[0])
+    } catch (error) {
+      console.error(error.message)
     }
-    filesNews()
+  }
+
+  useEffect(() => {
+    callSecureApiSecure()
+    // const filesNews = async () => {
+    //   const response = await getAllNewsFile(i18n.language)
+    //   setFilesNews(response.news)
+    //   if (response.news.length > 0) setSelectedFile(response.news[0])
+    // }
+    // filesNews()
   }, [i18n.language])
 
   function handlePageClick(selectedPage: { selected: number }) {

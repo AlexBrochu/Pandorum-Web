@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import NavBar from './common/navbar/Navbar'
 import CustomFooter from './common/footer/CustomFooter'
 import HomePage from './home/Home'
@@ -7,34 +7,34 @@ import NewsPage from './news/News'
 import RoadmapPage from './roadmap/Roadmap'
 import QuestionsAnswersPage from './questions_answers/QuestionsAnswers'
 import './App.scss'
+import ProtectedRoute from './common/authentication/routes/protected-route'
+import ProfilePage from './profile/Profile'
+import Auth0ProviderWithHistory from '../auth/auth0-provider-with-history'
 
-type AppState = {}
-
-class App extends React.Component<{}, AppState> {
-  render() {
-    return (
-      <Router>
+const App: React.FunctionComponent<any> = () => {
+  return (
+    <Router>
+      <Auth0ProviderWithHistory>
         <div className="app-container text-center sm:text-left">
           <NavBar></NavBar>
           <Switch>
             <Route path="/qa">
               <QuestionsAnswersPage />
             </Route>
-            <Route path="/news">
-              <NewsPage />
-            </Route>
+            <ProtectedRoute path="/news" component={NewsPage} />
             <Route path="/roadmap">
               <RoadmapPage />
             </Route>
+            <ProtectedRoute path="/profile" component={ProfilePage} />
             <Route path="/">
               <HomePage />
             </Route>
           </Switch>
           <CustomFooter />
         </div>
-      </Router>
-    )
-  }
+      </Auth0ProviderWithHistory>
+    </Router>
+  )
 }
 
 export default App

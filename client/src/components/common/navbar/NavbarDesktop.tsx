@@ -4,6 +4,8 @@ import ProfileDropdownDesktop from './ProfileDropdownDesktop'
 import { useTranslation } from 'react-i18next'
 import { useLocation, Link } from 'react-router-dom'
 import logo from '../../../assets/Pandorum_feather_blood_bk.ico'
+import { useAuth0 } from '@auth0/auth0-react'
+import AuthenticationButton from '../authentication/authentication-button'
 
 type NavbarDesktopProps = {}
 
@@ -14,6 +16,7 @@ const NavbarDesktop: React.FunctionComponent<NavbarDesktopProps> = (
   const { t, i18n } = useTranslation('nav')
   const [lang, setLang] = useState('fr')
   const location = useLocation()
+  const { isAuthenticated } = useAuth0()
 
   function handleClick() {
     if (lang === 'fr') {
@@ -50,12 +53,22 @@ const NavbarDesktop: React.FunctionComponent<NavbarDesktopProps> = (
                 {t('roadmap')}
               </Link>
 
-              <Link
-                to="/news"
-                className={location.pathname == '/news' ? 'active' : ''}
-              >
-                {t('news')}
-              </Link>
+              {isAuthenticated && (
+                <>
+                  <Link
+                    to="/news"
+                    className={location.pathname == '/news' ? 'active' : ''}
+                  >
+                    {t('news')}
+                  </Link>
+                  <Link
+                    to="/profile"
+                    className={location.pathname == '/profile' ? 'active' : ''}
+                  >
+                    Profile
+                  </Link>
+                </>
+              )}
 
               <Link
                 to="/qa"
@@ -93,6 +106,7 @@ const NavbarDesktop: React.FunctionComponent<NavbarDesktopProps> = (
                 <span className="sr-only">Change Language</span>
                 <div className="h-6 w-6">{lang.toUpperCase()}</div>
               </button>
+              <AuthenticationButton></AuthenticationButton>
             </div>
           </div>
         </div>
