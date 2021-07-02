@@ -24,8 +24,8 @@ class News {
 
     // Configure Express middleware.
     private middleware(): void {
-        this.express.use(bodyParser.json());
-        this.express.use(bodyParser.urlencoded({ extended: false }));
+        this.express.use(express.json());
+        this.express.use(express.urlencoded({ extended: false }));
     }
 
     private loadFileLanguage(language: string): void{

@@ -1,6 +1,8 @@
 import http from "http";
 import App from "./app";
 import { Logger } from "./logger/logger";
+import * as dotenv from "dotenv"
+dotenv.config();
 
 const port = 3080;
 
