@@ -3,7 +3,7 @@ import {Logger} from '../../logger/logger'
 import fs from 'fs'
 import path from 'path'
 
-class News {
+class SecuredNews {
 
     public express: express.Application;
     public logger: Logger
@@ -40,6 +40,7 @@ class News {
     private routes(): void {        // request to get all the news
         
         this.express.get('/news', (req, res, next) => {
+            this.logger.info('seucred')
             let newsLoaded: string[] = []
             if(req.headers.language === 'fr')
                 newsLoaded = this.newsFr
@@ -56,4 +57,4 @@ class News {
     }
 }
 
-export default new News().express
+export default new SecuredNews().express

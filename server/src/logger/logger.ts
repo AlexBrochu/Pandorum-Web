@@ -1,4 +1,4 @@
-import winston from 'winston';
+import winston from 'winston'
 
 export class Logger {
   
@@ -17,7 +17,7 @@ export class Logger {
         new winston.transports.File({ filename: './logs/error.log', level: 'error' }),
         new winston.transports.File({ filename: './logs/combined.log' }),
       ],
-    });
+    })
     //
     // If we're not in production then log to the `console` with the format:
     // `${info.level}: ${info.message} JSON.stringify({ ...rest }) `
@@ -25,19 +25,19 @@ export class Logger {
     if (process.env.NODE_ENV !== 'production') {
       this.logger.add(new winston.transports.Console({
         format: winston.format.simple(),
-      }));
+      }))
     }
   }
 
   public info(logText: string): void {
-      this.logger.info(new Date() + "info:::::" + logText);
+      this.logger.info(new Date() + 'info:::::' + logText)
   }
 
   public warn(logText: string): void {
-      this.logger.warn(new Date() + "debug:::::" + logText);
+      this.logger.warn(new Date() + 'debug:::::' + logText)
   }
 
   public error(logText: string): void {
-      this.logger.error(new Date() + "error:::::" + logText);
+      this.logger.error(new Date() + 'error:::::' + logText)
   }
 }

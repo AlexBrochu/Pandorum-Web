@@ -4,10 +4,12 @@ import HelloWord from './hello-word'
 import News from './news/news'
 import Authentication from './authentication'
 import checkJwt from '../auth/validate-jwt'
+import { Logger } from '../logger/logger'
 
 class Routes {
 
     public express: express.Application;
+    private logger: Logger
 
     // array to hold users
     public users: any[];
@@ -16,6 +18,7 @@ class Routes {
         this.express = express()
         this.middleware()
         this.routes()
+        this.logger = new Logger()
     }
 
     // Configure Express middleware.
@@ -30,9 +33,6 @@ class Routes {
         this.express.use('/', User)
         this.express.use('/', HelloWord)
         this.express.use('/', News)
-        // this.express.use('/', Authentication)
-        // this.express.use('/protected', Authentication)
-        // this.express.use('/protected', checkJwt, News)
     }
 }
 

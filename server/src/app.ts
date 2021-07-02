@@ -2,6 +2,8 @@ import express from 'express'
 import { Logger } from './logger/logger'
 import Routes from './routes/routes'
 import helmet from 'helmet'
+import checkJwt from './auth/validate-jwt'
+import protectedRoutes from './routes/protected-routes'
 
 class App {
 
@@ -10,6 +12,7 @@ class App {
 
     // array to hold users
     public users: any[];
+    private apiVersion = 'v1/'
 
     constructor() {
         this.logger = new Logger()
@@ -28,8 +31,16 @@ class App {
     }
 
     private routes(): void {
-        // user route
-        this.express.use('/api', Routes)
+        this.express.use('/api/'.concat(this.apiVersion), Routes)
+        this.express.use('/protected/api/'.concat(this.apiVersion),checkJwt, protectedRoutes)
+        this.express.use(function(err, req, res, next) {
+            if(err.name === 'UnauthorizedError') {
+              res.status(err.status).send({message:err.message})
+              console.error(err.message)
+              return
+            }
+         next()
+        })
         // const a = undefined;
         // const b = a ?? 'test';
         // this.logger.info(`ES11 - ${b}`)
