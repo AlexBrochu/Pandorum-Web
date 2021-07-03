@@ -32,7 +32,7 @@ class App {
 
     private routes(): void {
         this.express.use('/api/'.concat(this.apiVersion), Routes)
-        this.express.use('/protected/api/'.concat(this.apiVersion),checkJwt, protectedRoutes)
+        this.express.use('/api/'.concat(this.apiVersion).concat('protected/'),checkJwt, protectedRoutes)
         this.express.use(function(err, req, res, next) {
             if(err.name === 'UnauthorizedError') {
               res.status(err.status).send({message:err.message})
