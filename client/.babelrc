@@ -1,0 +1,13 @@
+{
+  "presets": [
+    "@babel/preset-react",
+    [
+      "@babel/preset-env", 
+      {
+        "useBuiltIns": "entry",
+        "corejs": 3, // includes the polyfill https://github.com/zloirock/core-js#usage
+        "targets": "ie >= 8"
+      }
+    ]
+  ]
+}

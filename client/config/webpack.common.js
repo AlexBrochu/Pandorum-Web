@@ -3,6 +3,10 @@ const paths = require('./paths')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+// polyfill only stable `core-js` features - ES and web standards:
+// https://github.com/zloirock/core-js#usage
+require('core-js/stable')
+require('regenerator-runtime/runtime')
 
 module.exports = {
   // Where webpack looks to start building the bundle
@@ -57,8 +61,16 @@ module.exports = {
   module: {
     rules: [
       { test: /\.md?$/, exclude: /node_modules/, use: ['raw-loader'] },
-      // JavaScript: Use Babel to transpile JavaScript files
-      { test: /\.tsx?$/, exclude: /node_modules/, use: ['ts-loader'] },
+      {
+        test: /\.(ts|tsx)$/,
+        loader: 'ts-loader',
+        exclude: [/node_modules/],
+      }, // static type checking with typescript loader
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader'
+      },// babel compiling with polyfill for support
       { test: /\.json5?$/, exclude: /node_modules/, use: ['json5-loader'] },
 
       // Styles: Inject CSS into the head with source maps

@@ -9,6 +9,7 @@
 		"moduleResolution": "node",
 		"plugins": [{"name": "typescript-tslint-plugin"}], 
 		"esModuleInterop": true,
-		"resolveJsonModule": true
+		"resolveJsonModule": true,
+		"sourceMap": true
 	}
 }
