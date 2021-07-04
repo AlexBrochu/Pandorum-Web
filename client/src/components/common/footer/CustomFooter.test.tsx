@@ -1,6 +1,8 @@
 import React from 'react'
 import { cleanup, fireEvent, render } from '@testing-library/react'
 import MockDate from 'mockdate'
+// import i18n from '../../../i18n'
+// import { I18nextProvider } from 'react-i18next'
 
 import CustomFooter from './CustomFooter'
 
@@ -24,7 +26,15 @@ beforeAll(() => {
 
 it('CustomFooter label', () => {
   const { container, getByText } = render(<CustomFooter />)
+  // const { container, getByText } = render(
+  //   <I18nextProvider i18n={i18n}>
+  //     <CustomFooter />
+  //   </I18nextProvider>
+  // )
 
-  expect(getByText(/2021/i)).toBeTruthy()
+  // test label keys
+  expect(getByText(/allright/i)).toBeDefined()
+  expect(getByText(/poweredby/i)).toBeDefined()
+  expect(getByText(/2020/i)).toBeTruthy()
   expect(container.firstChild).toHaveClass('footer')
 })
