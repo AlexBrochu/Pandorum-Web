@@ -4,6 +4,7 @@ import Routes from './routes/routes'
 import helmet from 'helmet'
 import checkJwt from './auth/validate-jwt'
 import protectedRoutes from './routes/protected-routes'
+import compression from 'compression'
 
 class App {
 
@@ -28,6 +29,7 @@ class App {
         this.express.use(express.urlencoded({ extended: true }))
         this.express.use('/static', express.static(__dirname + '/assets'))
         this.express.use(helmet())
+        this.express.use(compression())
     }
 
     private routes(): void {

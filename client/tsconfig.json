@@ -10,6 +10,12 @@
 		"plugins": [{"name": "typescript-tslint-plugin"}], 
 		"esModuleInterop": true,
 		"resolveJsonModule": true,
-		"sourceMap": true
-	}
+		"sourceMap": true,
+		"baseUrl": "src",
+		"allowSyntheticDefaultImports": true,
+		"paths": {
+			"Core/*": ["core/*"]
+		}
+	},
+	"include":["src/**/*"]
 }

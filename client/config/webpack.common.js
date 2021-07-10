@@ -62,12 +62,7 @@ module.exports = {
     rules: [
       { test: /\.md?$/, exclude: /node_modules/, use: ['raw-loader'] },
       {
-        test: /\.(ts|tsx)$/,
-        loader: 'ts-loader',
-        exclude: [/node_modules/],
-      }, // static type checking with typescript loader
-      {
-        test: /\.(js|jsx)$/,
+        test: /\.(jsx?|tsx?)$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader'
       },// babel compiling with polyfill for support
