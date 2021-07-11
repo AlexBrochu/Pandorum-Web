@@ -3,14 +3,11 @@ const paths = require('./paths')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// polyfill only stable `core-js` features - ES and web standards:
-// https://github.com/zloirock/core-js#usage
-require('core-js/stable')
-require('regenerator-runtime/runtime')
+require('@babel/polyfill')
 
 module.exports = {
   // Where webpack looks to start building the bundle
-  entry: [paths.src + '/index.tsx'],
+  entry: ['@babel/polyfill', paths.src + '/index.tsx'],
 
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],

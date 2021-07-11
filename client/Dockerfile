@@ -14,3 +14,5 @@ COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]
+
+# https://dev.to/karanpratapsingh/dockerize-your-react-app-4j2e
