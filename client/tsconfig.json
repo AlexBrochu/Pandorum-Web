@@ -11,10 +11,11 @@
 		"esModuleInterop": true,
 		"resolveJsonModule": true,
 		"sourceMap": true,
-		"baseUrl": "src",
+		"baseUrl": "./src",
 		"allowSyntheticDefaultImports": true,
 		"paths": {
-			"Core/*": ["core/*"]
+			"Assets/*": ["assets/*"],
+			"Data/*": ["data/*"]
 		}
 	},
 	"include":["src/**/*"]

@@ -3,6 +3,7 @@ const paths = require('./paths')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 require('@babel/polyfill')
 
 module.exports = {
@@ -11,6 +12,9 @@ module.exports = {
 
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    plugins: [
+      new TsconfigPathsPlugin(), 
+    ]
   },
 
   // Where webpack outputs the assets and bundles
