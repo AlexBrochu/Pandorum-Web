@@ -1,11 +1,9 @@
-import express from 'express'
+import {Request, Response, NextFunction} from 'express'
 import {Logger} from '../../logger/logger'
 import fs from 'fs'
 import path from 'path'
 
 class News {
-
-    public express: express.Application;
     public logger: Logger
 
     // array to hold news
@@ -13,8 +11,6 @@ class News {
     public newsEn: string[] = [];
 
     constructor() {
-        this.express = express()
-        this.routes()
         this.logger = new Logger()
         this.loadFileLanguage('fr')
         this.loadFileLanguage('en')
@@ -36,24 +32,22 @@ class News {
             }
         })
     }
-
-    private routes(): void {        // request to get all the news
+   // request to get all the news
         
-        this.express.get('/news', (req, res, next) => {
-            let newsLoaded: string[] = []
-            if(req.headers.language === 'fr')
-                newsLoaded = this.newsFr
-            else 
-                newsLoaded = this.newsEn
+    public getNews = (req: Request, res: Response, next: NextFunction): void => {
+        let newsLoaded: string[] = []
+        if(req.headers.language === 'fr')
+            newsLoaded = this.newsFr
+        else 
+            newsLoaded = this.newsEn
 
-            this.logger.info('Number of news returned: ' + newsLoaded.length)
-            this.logger.info('Language returned: ' + req.headers.language)
-                res.json({
-                'info': req.headers.language,
-                'news': newsLoaded, 
-                })
-        })
+        this.logger.info('Number of news returned: ' + newsLoaded.length)
+        this.logger.info('Language returned: ' + req.headers.language)
+            res.json({
+            'info': req.headers.language,
+            'news': newsLoaded, 
+            })
     }
 }
 
-export default new News().express
+export default News

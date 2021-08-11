@@ -2,7 +2,7 @@ import winston from 'winston'
 
 export class Logger {
   
-  logger: any
+  logger: winston.Logger
 
   constructor() {
     this.logger = winston.createLogger({

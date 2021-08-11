@@ -3,24 +3,21 @@ import { Logger } from './logger/logger'
 import Routes from './routes/routes'
 import helmet from 'helmet'
 import checkJwt from './auth/validate-jwt'
-import protectedRoutes from './routes/protected-routes'
 import compression from 'compression'
+import ProtectedRoutes from './routes/protected-routes'
 
 class App {
 
     public express: express.Application;
     public logger: Logger
-
-    // array to hold users
-    public users: any[];
     private apiVersion = 'v1/'
+    private protectedRoutes = new ProtectedRoutes()
 
     constructor() {
         this.logger = new Logger()
         this.express = express()
         this.middleware()
         this.routes()
-        this.users = []
     }
 
     // Configure Express middleware.
@@ -33,8 +30,8 @@ class App {
     }
 
     private routes(): void {
-        this.express.use('/api/'.concat(this.apiVersion), Routes)
-        this.express.use('/api/'.concat(this.apiVersion).concat('protected/'),checkJwt, protectedRoutes)
+        this.express.use('/api/'.concat(this.apiVersion), new Routes().router)
+        this.express.use('/api/'.concat(this.apiVersion).concat('protected/'),checkJwt, this.protectedRoutes.router)
         // Handle unauthorized error from auth
         this.express.use(function(err, req, res, next) {
             if(err.name === 'UnauthorizedError') {
@@ -48,7 +45,7 @@ class App {
         // const b = a ?? 'test';
         // this.logger.info(`ES11 - ${b}`)
         // handle undefined routes
-        this.express.use('*', (req, res, next) => {
+        this.express.use('*', (req, res) => {
             res.send('Make sure url is correct!!!')
         })
     }

@@ -1,39 +1,22 @@
-import express from 'express'
+import {Router} from 'express'
 import User from './user'
-import HelloWord from './hello-word'
 import News from './news/news'
-import Authentication from './authentication'
-import checkJwt from '../auth/validate-jwt'
-import { Logger } from '../logger/logger'
 
 class Routes {
 
-    public express: express.Application;
-    private logger: Logger
-
-    // array to hold users
-    public users: any[];
+    public router = Router()
+    public news = new News()
 
     constructor() {
-        this.express = express()
-        this.middleware()
-        this.routes()
-        this.logger = new Logger()
+        this.initializeRoutes()
     }
 
-    // Configure Express middleware.
-    private middleware(): void {
-        this.express.use(express.json())
-        this.express.use(express.urlencoded({ extended: true }))
-    }
-
-    private routes(): void {
+    private initializeRoutes(): void{
 
         // user route
-        this.express.use('/', User)
-        this.express.use('/', HelloWord)
-        this.express.use('/', News)
+        this.router.get('/', User)
+        this.router.use('/', this.news.getNews)
     }
 }
 
-export default new Routes().express
+export default Routes

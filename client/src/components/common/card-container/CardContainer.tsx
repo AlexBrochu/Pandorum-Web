@@ -9,7 +9,7 @@ type CardContainerProps = {
   slideshowProps: SlideShowProps
 }
 
-const CardContainer: React.FunctionComponent<CardContainerProps> = (
+const CardContainer: React.FC<CardContainerProps> = (
   props: CardContainerProps
 ): any => {
   return (

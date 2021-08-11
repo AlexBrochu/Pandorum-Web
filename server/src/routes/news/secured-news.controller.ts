@@ -1,11 +1,9 @@
-import express from 'express'
+import { NextFunction, Request, Response } from 'express'
 import {Logger} from '../../logger/logger'
 import fs from 'fs'
 import path from 'path'
 
-class SecuredNews {
-
-    public express: express.Application;
+class SecuredNewsController {
     public logger: Logger
 
     // array to hold news
@@ -13,8 +11,6 @@ class SecuredNews {
     public newsEn: string[] = [];
 
     constructor() {
-        this.express = express()
-        this.routes()
         this.logger = new Logger()
         this.loadFileLanguage('fr')
         this.loadFileLanguage('en')
@@ -37,10 +33,8 @@ class SecuredNews {
         })
     }
 
-    private routes(): void {        // request to get all the news
-        
-        this.express.get('/news', (req, res, next) => {
-            this.logger.info('seucred')
+    public getAllNews(req: Request, res: Response, next: NextFunction): void {
+            this.logger.info('secured')
             let newsLoaded: string[] = []
             if(req.headers.language === 'fr')
                 newsLoaded = this.newsFr
@@ -49,12 +43,11 @@ class SecuredNews {
 
             this.logger.info('Number of news returned: ' + newsLoaded.length)
             this.logger.info('Language returned: ' + req.headers.language)
-                res.json({
+            res.status(200).send({
                 'info': req.headers.language,
                 'news': newsLoaded, 
-                })
-        })
+            })
     }
 }
 
-export default new SecuredNews().express
+export default SecuredNewsController

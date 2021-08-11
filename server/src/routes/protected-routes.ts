@@ -1,28 +1,19 @@
-import express from 'express'
-import SecuredNews from './news/secured-news'
-import { Logger } from '../logger/logger'
+import { Router } from 'express'
+import SecuredNewsController from './news/secured-news.controller'
 
 class ProtectedRoutes {
-  public express: express.Application
-  private logger: Logger
+  public path = '/news';
+  public router = Router();
+  private SecuredNewsController = new SecuredNewsController()
 
   constructor() {
-    this.express = express()
-    this.middleware()
-    this.routes()
-    this.logger = new Logger()
+    this.initializeRoutes()
   }
 
-  // Configure Express middleware.
-  private middleware(): void {
-    this.express.use(express.json())
-    this.express.use(express.urlencoded({ extended: true }))
-  }
-
-  private routes(): void {
+  private initializeRoutes(): void {
     // user route
-    this.express.use('/', SecuredNews)
+    this.router.get(`${this.path}`, this.SecuredNewsController.getAllNews)
   }
 }
 
-export default new ProtectedRoutes().express
+export default ProtectedRoutes

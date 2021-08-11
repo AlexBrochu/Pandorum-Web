@@ -40,3 +40,5 @@ services:
       - 8080:8080
     links:
       - pandorum-server
+    depends_on:
+      - pandorum-server
