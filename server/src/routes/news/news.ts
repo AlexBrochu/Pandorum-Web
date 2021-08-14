@@ -1,4 +1,4 @@
-import {Request, Response, NextFunction} from 'express'
+import {Request, Response} from 'express'
 import {Logger} from '../../logger/logger'
 import fs from 'fs'
 import path from 'path'
@@ -34,7 +34,7 @@ class News {
     }
    // request to get all the news
         
-    public getNews = (req: Request, res: Response, next: NextFunction): void => {
+    public getNews = (req: Request, res: Response): void => {
         let newsLoaded: string[] = []
         if(req.headers.language === 'fr')
             newsLoaded = this.newsFr

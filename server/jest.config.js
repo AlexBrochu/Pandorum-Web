@@ -10,4 +10,8 @@ module.exports = {
   },
   testMatch: ['**/test/**/*.test.(ts|js)'],
   testEnvironment: 'node',
+  moduleNameMapper: {
+    '^Root/(.*)$': '<rootDir>/src/$1',
+    '^Assets/(.*)$': '<rootDir>/assets/$1',
+  },
 }

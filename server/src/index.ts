@@ -16,4 +16,4 @@ server.on('listening', function(): void {
     logger.info(`Listening on ${bind}`)
  })
 
-module.exports = App
+export default App

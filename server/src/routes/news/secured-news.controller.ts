@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from 'express'
+import { Request, Response } from 'express'
 import {Logger} from '../../logger/logger'
 import fs from 'fs'
 import path from 'path'
@@ -33,7 +33,7 @@ class SecuredNewsController {
         })
     }
 
-    public getAllNews(req: Request, res: Response, next: NextFunction): void {
+    public getAllNews(req: Request, res: Response): void {
             this.logger.info('secured')
             let newsLoaded: string[] = []
             if(req.headers.language === 'fr')

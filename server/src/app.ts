@@ -4,7 +4,7 @@ import Routes from './routes/routes'
 import helmet from 'helmet'
 import checkJwt from './auth/validate-jwt'
 import compression from 'compression'
-import ProtectedRoutes from './routes/protected-routes'
+import ProtectedRoutes from './routes/protected-news-routes'
 
 class App {
 
@@ -46,7 +46,7 @@ class App {
         // this.logger.info(`ES11 - ${b}`)
         // handle undefined routes
         this.express.use('*', (req, res) => {
-            res.send('Make sure url is correct!!!')
+            res.status(404).send('Make sure url is correct!!!')
         })
     }
 }

@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import SecuredNewsController from './news/secured-news.controller'
 
-class ProtectedRoutes {
+class ProtectedNewsRoutes {
   public path = '/news';
   public router = Router();
   private SecuredNewsController = new SecuredNewsController()
@@ -16,4 +16,4 @@ class ProtectedRoutes {
   }
 }
 
-export default ProtectedRoutes
+export default ProtectedNewsRoutes

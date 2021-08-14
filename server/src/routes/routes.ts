@@ -15,7 +15,7 @@ class Routes {
 
         // user route
         this.router.get('/', User)
-        this.router.use('/', this.news.getNews)
+        this.router.get('/news', this.news.getNews)
     }
 }
 
