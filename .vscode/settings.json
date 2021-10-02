@@ -20,6 +20,13 @@
     "**/dist": true,
     "**/coverage": true
   },
+  "stylelint.config": {
+    "rules": {
+        "at-rule-name-case": "lower",
+        "at-rule-name-space-after": "always-single-line",
+        "at-rule-semicolon-newline-after": "always",
+    }
+  },
   "typescript.referencesCodeLens.enabled": true,
   "appService.zipIgnorePattern": [".vscode{,/**}"],
   "appService.deploySubpath": ""

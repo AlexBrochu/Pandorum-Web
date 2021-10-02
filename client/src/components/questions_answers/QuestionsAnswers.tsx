@@ -1,8 +1,7 @@
 import './QuestionsAnswers.scss'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import QACard from './qa-card/QACard'
-import CustomizedAccordions from './accordion-qa-card/AccordionQACard'
+import AccordionQACard from './accordion-qa-card/AccordionQACard'
 
 type QuestionsAnswersProps = {}
 
@@ -21,15 +20,7 @@ const QuestionsAnswersPage: React.FunctionComponent<QuestionsAnswersProps> = ():
       <main>
         <div className="mx-auto py-6 sm:px-6 lg:px-8">
           <div className="px-4 py-6 sm:px-0">
-            <div>
-              {[1, 2].map((value, index) => (
-                <QACard
-                  title={t('card' + value + '.title')}
-                  text={t('card' + value + '.text')}
-                ></QACard>
-              ))}
-            </div>
-            <CustomizedAccordions />
+            <AccordionQACard />
           </div>
         </div>
       </main>
