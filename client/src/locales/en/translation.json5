@@ -40,6 +40,13 @@
         subtitle: 'Join your friend you can make it.',
       },
     },
+    cardDemo3: {
+      title: 'Immersive Multiplayer experience',
+      description1: {
+        title: 'Play RPG game like never before',
+        subtitle: 'Your friends are waiting for you in there custom quests. DnD like games',
+      },
+    },
   },
   roadmap: {
     mainPage: {

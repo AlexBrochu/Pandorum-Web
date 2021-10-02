@@ -2,6 +2,7 @@ import './QuestionsAnswers.scss'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import QACard from './qa-card/QACard'
+import CustomizedAccordions from './accordion-qa-card/AccordionQACard'
 
 type QuestionsAnswersProps = {}
 
@@ -28,6 +29,7 @@ const QuestionsAnswersPage: React.FunctionComponent<QuestionsAnswersProps> = ():
                 ></QACard>
               ))}
             </div>
+            <CustomizedAccordions />
           </div>
         </div>
       </main>
