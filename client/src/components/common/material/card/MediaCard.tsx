@@ -14,7 +14,7 @@ interface MediaCardProps {
   description: string,
 }
 
-export default function MediaCard(props: MediaCardProps) {
+const MediaCard: React.FunctionComponent<MediaCardProps> = (props): any => {
   const { t } = useTranslation('home')
 
   return (
@@ -40,3 +40,4 @@ export default function MediaCard(props: MediaCardProps) {
     </Card>
   );
 }
+export default MediaCard

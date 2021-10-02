@@ -5,6 +5,7 @@ import { SlideShowProps } from '../common/slideshow-card/SlideshowCard'
 import CardContainer from '../common/card-container/CardContainer'
 import Heading from '../common/heading/heading'
 import { SmallCardData } from 'data/small-card.js'
+import MediaCard from '../common/material/card/MediaCard'
 
 type HomePageProps = {}
 
@@ -44,24 +45,11 @@ const HomePage: React.FunctionComponent<HomePageProps> = (): any => {
   //   ],
   // }
 
-  const CardInfo = ():any => {
+  const CardInfo = (): any => {
     return (SmallCardData.map((d: any, key: number) => {
       return (
-        <div key={key}>
-          <img src={d.media}/>
-          <h3>{t(d.title)}</h3>
-          {
-            d.descriptions.map((desc:any, key:number) => {
-              return (
-                <div>
-                  <p>{t(desc.title)}</p>
-                  <p>{t(desc.subtitle)}</p>
-                </div>
-              )
-            })
-          }
-        </div>
-        )
+        <MediaCard key={key} {...{ imgSrc: d.media, imgAlt: 'test', title: d.title, description: d.descriptions[0].description }}></MediaCard>
+      )
     })
     )
   }
