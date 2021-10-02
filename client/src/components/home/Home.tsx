@@ -44,6 +44,28 @@ const HomePage: React.FunctionComponent<HomePageProps> = (): any => {
   //   ],
   // }
 
+  const CardInfo = ():any => {
+    return (SmallCardData.map((d: any, key: number) => {
+      return (
+        <div key={key}>
+          <img src={d.media}/>
+          <h3>{t(d.title)}</h3>
+          {
+            d.descriptions.map((desc:any, key:number) => {
+              return (
+                <div>
+                  <p>{t(desc.title)}</p>
+                  <p>{t(desc.subtitle)}</p>
+                </div>
+              )
+            })
+          }
+        </div>
+        )
+    })
+    )
+  }
+
   return (
     <div className="page-container">
       <Heading title={t('mainPage.title')} />
@@ -51,9 +73,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = (): any => {
         <div className="mx-auto py-6 sm:px-6 lg:px-8">
           <div className="px-4 py-6 sm:px-0">
             <div>
-              {SmallCardData.map((d: any, key: number) => {
-                return <div key={key}>{d.title}</div>
-              })}
+              <CardInfo></CardInfo>
             </div>
           </div>
         </div>
