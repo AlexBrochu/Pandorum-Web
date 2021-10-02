@@ -7,19 +7,19 @@ import MuiAccordionSummary from '@mui/material/AccordionSummary'
 import MuiAccordionDetails from '@mui/material/AccordionDetails'
 import Typography from '@mui/material/Typography'
 
-const Accordion = styled((props:any) => (
+const Accordion = styled((props: any) => (
     <MuiAccordion disableGutters elevation={0} square {...props} >{props.children}</MuiAccordion>
 ))(({ theme }) => ({
-  border: `1px solid ${theme.palette.divider}`,
-  '&:not(:last-child)': {
-    borderBottom: 0,
+    border: `1px solid ${theme.palette.divider}`,
+    '&:not(:last-child)': {
+        borderBottom: 0,
     },
     '&:before': {
         display: 'none',
     },
 }))
 
-const AccordionSummary = styled((props:any) => (
+const AccordionSummary = styled((props: any) => (
     <MuiAccordionSummary
         expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
         {...props}
@@ -49,25 +49,25 @@ export default function AccordionQACard() {
     const { t } = useTranslation('qa')
     const [expanded, setExpanded] = React.useState('panel1')
 
-    const handleChange = (panel:any) => (event:any, newExpanded:any) => {
+    const handleChange = (panel: any) => (event: any, newExpanded: any) => {
         setExpanded(newExpanded ? panel : false)
     }
 
     return (
         <div>
-            {[1,2].map((value, index) => (
+            {[1, 2].map((value, index) => (
                 <Accordion expanded={expanded === `planel${index}`} onChange={handleChange(`planel${index}`)}>
-                <AccordionSummary aria-controls={`planel${index}-content`} id={`planel${index}-header`}>
-                    <Typography>{t('card' + value + '.title')}</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Typography>
-                        {t('card' + value + '.text')}
-                    </Typography>
-                </AccordionDetails>
-            </Accordion>
+                    <AccordionSummary aria-controls={`planel${index}-content`} id={`planel${index}-header`}>
+                        <Typography>{t('card' + value + '.title')}</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography>
+                            {t('card' + value + '.text')}
+                        </Typography>
+                    </AccordionDetails>
+                </Accordion>
             ))}
-            
+
         </div>
     )
 }
