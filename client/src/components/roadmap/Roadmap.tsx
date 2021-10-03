@@ -2,6 +2,7 @@ import './Roadmap.scss'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import TimeLineCell from './time-line/TimeLineCell'
+import CustomizedTimeline from './timeline-material/CustomizedTimeline'
 
 //https://mui.com/components/timeline/
 
@@ -58,6 +59,7 @@ const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = (): any => {
                 }}
               ></TimeLineCell>
             </div>
+            <CustomizedTimeline></CustomizedTimeline>
           </div>
         </div>
       </main>
