@@ -67,7 +67,6 @@ export default function AccordionQACard() {
                     </AccordionDetails>
                 </Accordion>
             ))}
-
         </div>
     )
 }
