@@ -1,6 +1,7 @@
 module.exports = {
   extends: ['stylelint-config-standard'],
   rules: {
+    'rule-empty-line-before': null,
     'at-rule-no-unknown': [
       true,
       {
