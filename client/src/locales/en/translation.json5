@@ -87,6 +87,10 @@
       title: 'Can I get a refund?',
       text: 'Ofcourse!',
     },
+    card3: {
+      title: 'What are the minimum PC requirement?',
+      text: 'You need one hell of a PC to make it work',
+    },
   },
   footer: {
     allright: 'All Rights Reserved.',
