@@ -1,7 +1,9 @@
 import './Roadmap.scss'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import TimeLineCell from './time-line/TimeLineCell'
+import CustomizedTimeline from './timeline-material/CustomizedTimeline'
+
+//https://mui.com/components/timeline/
 
 type RoadmapPageProps = {}
 
@@ -23,38 +25,24 @@ const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = (): any => {
               <h2>Our Mission</h2>
               <hr></hr>
               <p>
-                blablablablablablablablabla blablablablablablabla
+                blablablablablablablablabla blablablab lablablabla
                 blablablablablablablabla
               </p>
             </div>
             <div className="lg:w-8/12">
-              <TimeLineCell
-                isFirst={true}
-                isLast={false}
-                content={{
+              <CustomizedTimeline cells={[{
                   title: 'info1.title',
                   time: 'info1.time',
                   description: 'info1.description',
-                }}
-              ></TimeLineCell>
-              <TimeLineCell
-                isFirst={false}
-                isLast={false}
-                content={{
-                  title: 'info1.title',
-                  time: 'info1.time',
-                  description: 'info1.description',
-                }}
-              ></TimeLineCell>
-              <TimeLineCell
-                isFirst={false}
-                isLast={true}
-                content={{
-                  title: 'info1.title',
-                  time: 'info1.time',
-                  description: 'info1.description',
-                }}
-              ></TimeLineCell>
+                },{
+                  title: 'info2.title',
+                  time: 'info2.time',
+                  description: 'info2.description',
+                },{
+                  title: 'info3.title',
+                  time: 'info3.time',
+                  description: 'info3.description',
+                }]}></CustomizedTimeline>
             </div>
           </div>
         </div>
